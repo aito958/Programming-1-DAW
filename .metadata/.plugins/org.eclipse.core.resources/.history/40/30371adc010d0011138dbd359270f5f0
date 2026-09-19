@@ -1,0 +1,16 @@
+package RELACION08_ARRAYS;
+
+import java.util.Scanner;
+
+public class Ejercicio1SinArrays {
+	private static Scanner teclado = new Scanner(System.in);
+	static int NUM_NUMEROS = 5;
+
+	public static void main(String[] args) {
+		int contadorPositivos = 0;
+		int sumTotal = 0;
+		
+		
+	}
+
+}

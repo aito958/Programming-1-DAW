@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;arreglo&apos; in &apos;RELACION08_ARRAYS.Ordenar.main(...)&apos; to &apos;arrays&apos;&#x0D;&#x0A;- Original project: &apos;Tema4&apos;&#x0D;&#x0A;- Original element: &apos;RELACION08_ARRAYS.Ordenar.main(String[]).arreglo&apos;&#x0D;&#x0A;- Renamed element: &apos;arreglo&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;arreglo&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;RELACION08_ARRAYS{Ordenar.java[Ordenar~main~\[QString;@arreglo!281!315!285!291!\[I!0!false" name="arrays" references="true" stamp="1772625504222" version="1.0"/>
+</session>

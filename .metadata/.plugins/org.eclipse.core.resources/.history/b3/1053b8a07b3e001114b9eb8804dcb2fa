@@ -1,0 +1,43 @@
+package relacion11.MaterialEjercicio03;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Historial {
+	
+	List<VisitaPaginaWeb> hidtorial  = new ArrayList<VisitaPaginaWeb>();
+	
+	String Url;
+	String fecha;
+	String hora;
+	String localDate;
+	String direccion;
+	
+	
+	
+	public void annadirNuevaVisitaPaginaWeb(VisitaPaginaWeb visita) throws VisitaPaginaWebException {
+		
+		if(direccion == null || direccion.isEmpty()) {
+			throw new VisitaPaginaWebException("La direccion no puede ser nula o vacia");
+		
+		}else {
+
+		}
+	}
+
+
+
+	public char[] consultarHistorialPorDia(LocalDate fecha2) throws VisitaPaginaWebException {
+
+		return null;
+	}
+
+
+
+	public void borrarHistorial() {
+
+		
+	}
+
+}

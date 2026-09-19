@@ -1,0 +1,18 @@
+
+public class bataja {
+
+	public static void main(String[] args) {
+
+		Carta miCarta = new Carta(7, "Corazones");
+		miCarta.mostrarcarta();
+
+		Carta miCarta2 = new Carta(2, "Corazones");
+		miCarta2.mostrarcarta();
+		
+		Carta miCarta3 = new Carta(7, "Picas");
+		miCarta3.mostrarcarta();
+		
+		
+	}
+
+}

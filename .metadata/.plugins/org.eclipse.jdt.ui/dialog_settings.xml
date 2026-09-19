@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
+	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-21"/>
+	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo.comments" value="false"/>
+	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo" value="false"/>
+	<item key="SearchScopeActionGroup.search_scope_type" value="1"/>
+	<item key="CallHierarchyViewPart.call_mode" value="0"/>
+	<item key="CallHierarchyViewPart.field_mode" value="2"/>
+	<item key="CallHierarchyViewPart.ratio3" value="500"/>
+	<item key="CallHierarchyViewPart.orientation" value="3"/>
+	<item key="CallHierarchyViewPart.ratio0" value="500"/>
+	<item key="filters_last_used" value="filter_imports;"/>
+	<item key="CallHierarchyViewPart.ratio1" value="500"/>
+	<item key="delegateUpdating" value="false"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\Aitor\Downloads\mysql-connector-j-9.7.0\mysql-connector-j-9.7.0"/>
+	<item key="UserLibraryLoadSaveDialog.size" value="480,544"/>
+	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
+		<item key="group_libraries" value="true"/>
+		<item key="layout" value="2"/>
+		<item key="rootMode" value="1"/>
+		<item key="linkWithEditor" value="true"/>
+		<item key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;packageExplorer group_libraries=&quot;1&quot; layout=&quot;2&quot; linkWithEditor=&quot;1&quot; rootMode=&quot;1&quot; workingSetName=&quot;Aggregate for window 1759764518712&quot;&gt;&#x0D;&#x0A;&lt;customFilters userDefinedPatternsEnabled=&quot;false&quot;&gt;&#x0D;&#x0A;&lt;xmlDefinedFilters&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.StaticsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.buildship.ui.packageexplorer.filter.gradle.buildfolder&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.mylyn.java.ui.MembersFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.m2e.MavenModuleFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.buildship.ui.packageexplorer.filter.gradle.subProject&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.DeprecatedMembersFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.FieldsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;/xmlDefinedFilters&gt;&#x0D;&#x0A;&lt;/customFilters&gt;&#x0D;&#x0A;&lt;/packageExplorer&gt;"/>
+	</section>
+	<section name="JavaProjectWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="128"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="741"/>
+		<item key="DIALOG_HEIGHT" value="816"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+	<section name="NewClassCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="287"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="571"/>
+		<item key="DIALOG_HEIGHT" value="656"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
+	</section>
+	<section name="NewClassWizardPage">
+		<item key="create_constructor" value="false"/>
+		<item key="create_unimplemented" value="true"/>
+	</section>
+	<section name="completion_proposal_size">
+		<item key="size.x" value="427"/>
+		<item key="size.y" value="822"/>
+		<item key="contextSelector.size.x" value="329"/>
+		<item key="contextSelector.size.y" value="220"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
+	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="updateSimilarElements" value="false"/>
+		<item key="updateSimilarElementsMatchStrategy" value="1"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="renameSubpackages" value="false"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.typehierarchy.QuickHierarchy">
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_WIDTH" value="450"/>
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_HEIGHT" value="500"/>
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+	</section>
+	<section name="NewPackageCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="513"/>
+		<item key="DIALOG_Y_ORIGIN" value="127"/>
+		<item key="DIALOG_WIDTH" value="525"/>
+		<item key="DIALOG_HEIGHT" value="500"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="NewPackageWizardPage">
+		<item key="create_package_info_java" value="false"/>
+	</section>
+	<section name="JavaSearchPage">
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="INCLUDE_MASK" value="15"/>
+		<item key="HISTORY_SIZE" value="2"/>
+		<section name="HISTORY0">
+			<item key="searchFor" value="0"/>
+			<item key="scope" value="0"/>
+			<item key="pattern" value="casino"/>
+			<item key="limitTo" value="2"/>
+			<item key="matchLocations" value="0"/>
+			<item key="javaElement" value=""/>
+			<item key="isCaseSensitive" value="false"/>
+			<item key="includeMask" value="15"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item key="searchFor" value="0"/>
+			<item key="scope" value="0"/>
+			<item key="pattern" value="examan_02"/>
+			<item key="limitTo" value="2"/>
+			<item key="matchLocations" value="0"/>
+			<item key="javaElement" value="=examen_0.1/src&lt;{examan_02.java[examan_02"/>
+			<item key="isCaseSensitive" value="true"/>
+			<item key="includeMask" value="15"/>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+	<section name="BreadcrumbItemDropDown">
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="SearchInDialog">
+		<item key="SearchInSources" value="true"/>
+		<item key="SearchInProjects" value="true"/>
+		<item key="SearchInJRE" value="true"/>
+		<item key="SearchInAppLibs" value="true"/>
+	</section>
+	<section name="CallHierarchySearchScope">
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
+		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="90"/>
+			<item key="DIALOG_Y_ORIGIN" value="78"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="2"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION"/>
+		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Casino - TEMA 3"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\Aitor\Desktop\casino.jar"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\Aitor\Desktop\casino.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value=".xml"/>
+		</list>
+		<section name="FatJarPackageWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="560"/>
+			<item key="DIALOG_HEIGHT" value="669"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.text.QuickOutline">
+		<item key="GoIntoTopLevelTypeAction.isChecked" value="false"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_WIDTH" value="450"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_HEIGHT" value="500"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+	</section>
+	<section name="SourceActionDialog.constructors">
+		<item key="VisibilityModifier" value="1"/>
+		<item key="FinalModifier" value="false"/>
+		<item key="SynchronizedModifier" value="false"/>
+		<item key="Comments" value="false"/>
+	</section>
+	<section name="GenerateConstructorUsingFieldsSelectionDialog">
+		<item key="OmitCallToSuper" value="false"/>
+	</section>
+	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
+		<item key="DIALOG_X_ORIGIN" value="516"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="518"/>
+		<item key="DIALOG_HEIGHT" value="700"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+	</section>
+	<section name="SourceActionDialog.methods">
+		<item key="LimitElements" value="false"/>
+		<item key="IgnoreDefault" value="true"/>
+		<item key="StringStyle" value="0"/>
+		<item key="LimitValue" value="10"/>
+		<item key="SkipNull" value="false"/>
+		<item key="ToStringTemplateSelected" value="0"/>
+		<item key="FinalModifier" value="false"/>
+		<item key="SynchronizedModifier" value="false"/>
+		<item key="Comments" value="false"/>
+		<item key="InstanceOf" value="false"/>
+		<item key="Blocks" value="false"/>
+		<item key="Objects.equals &amp; Objects.hash" value="true"/>
+		<item key="VisibilityModifier" value="1"/>
+	</section>
+	<section name="DialogBounds_GenerateToStringDialog">
+		<item key="DIALOG_X_ORIGIN" value="519"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="513"/>
+		<item key="DIALOG_HEIGHT" value="709"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+	</section>
+	<section name="SelfEncapsulateFieldWizard">
+		<item key="GenerateJavadoc" value="false"/>
+	</section>
+	<section name="DialogBounds_SuperInterfaceSelectionDialog">
+		<item key="DIALOG_X_ORIGIN" value="77"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item key="DIALOG_WIDTH" value="370"/>
+		<item key="DIALOG_HEIGHT" value="552"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="NewInterfaceCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="487"/>
+		<item key="DIALOG_Y_ORIGIN" value="50"/>
+		<item key="DIALOG_WIDTH" value="577"/>
+		<item key="DIALOG_HEIGHT" value="548"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+	</section>
+	<section name="JarPackageWizard">
+		<item key="JarPackageWizardPage.EXPORT_CLASS_FILES" value="false"/>
+		<item key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER" value="false"/>
+		<item key="JarPackageWizardPage.EXPORT_JAVA_FILES" value="true"/>
+		<item key="JarPackageWizardPage.REFACTORINGS" value="false"/>
+		<item key="JarPackageWizardPage.COMPRESS" value="true"/>
+		<item key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES" value="false"/>
+		<item key="JarPackageWizardPage.OVERWRITE" value="false"/>
+		<item key="jarOptionsWizardPage.EXPORT_WARNINGS" value="true"/>
+		<item key="jarOptionsWizardPage.EXPORT_ERRORS" value="true"/>
+		<item key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS" value="false"/>
+		<item key="jarOptionsWizardPage.BUILD_IF_NEEDED" value="true"/>
+		<item key="jarOptionsWizardPage.SAVE_DESCRIPTION" value="false"/>
+		<item key="jarOptionsWizardPage.DESCRIPTION_LOCATION" value=""/>
+		<item key="JarManifestWizardPage.GENERATE_MANIFEST" value="true"/>
+		<item key="JarManifestWizardPage.SAVE_MANIFEST" value="false"/>
+		<item key="JarManifestWizardPage.REUSE_MANIFEST" value="false"/>
+		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
+		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
+		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\Aitor\Desktop\Libreria.jar"/>
+			<item value="C:\Users\Aitor\Desktop\Holita.jar"/>
+		</list>
+		<section name="JarPackageWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="560"/>
+			<item key="DIALOG_HEIGHT" value="669"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="0"/>
+	</section>
+	<section name="DialogBounds_GenerateHashCodeEqualsDialog">
+		<item key="DIALOG_X_ORIGIN" value="256"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="513"/>
+		<item key="DIALOG_HEIGHT" value="614"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="NewAnnotationCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="498"/>
+		<item key="DIALOG_Y_ORIGIN" value="17"/>
+		<item key="DIALOG_WIDTH" value="554"/>
+		<item key="DIALOG_HEIGHT" value="598"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="AddGetterSetterDialog">
+		<item key="SortOrdering" value="false"/>
+		<item key="RemoveFinal" value="false"/>
+	</section>
+	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
+		<item key="DIALOG_X_ORIGIN" value="510"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="530"/>
+		<item key="DIALOG_HEIGHT" value="718"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="OverrideMethodDialog">
+		<item key="showtypes" value="true"/>
+	</section>
+	<section name="DialogBounds_OverrideMethodDialog">
+		<item key="DIALOG_X_ORIGIN" value="512"/>
+		<item key="DIALOG_Y_ORIGIN" value="61"/>
+		<item key="DIALOG_WIDTH" value="526"/>
+		<item key="DIALOG_HEIGHT" value="532"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="JavadocWizardDialog">
+		<item key="DIALOG_X_ORIGIN" value="83"/>
+		<item key="DIALOG_Y_ORIGIN" value="29"/>
+		<item key="DIALOG_WIDTH" value="614"/>
+		<item key="DIALOG_HEIGHT" value="574"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="javadoc">
+		<item key="javadoc_command_history" value="C:\Program Files\Java\jdk-22\bin\javadoc.exe"/>
+		<item key="fromStandard" value="true"/>
+		<item key="docletname" value=""/>
+		<item key="docletpath" value=""/>
+		<item key="access" value="public"/>
+		<item key="use" value="true"/>
+		<item key="author" value="true"/>
+		<item key="version" value="true"/>
+		<item key="nodeprecated" value="false"/>
+		<item key="nodeprecatedlist" value="false"/>
+		<item key="splitindex" value="true"/>
+		<item key="noindex" value="false"/>
+		<item key="notree" value="false"/>
+		<item key="nonavbar" value="false"/>
+		<item key="openinbrowser" value="false"/>
+		<item key="source" value="14"/>
+		<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema04.Eje03.zip_expanded\LordRings\javadoc.xml"/>
+		<item key="destdir" value="C:\Users\Aitor\Desktop\Ejercico.Entorno\LordRings\doc"/>
+		<item key="doctitle" value="Maquina de cafe"/>
+		<section name="projects">
+			<section name="EjemploEnumerado1">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploEnumerado1\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploEnumerado1\javadoc.xml"/>
+			</section>
+			<section name="EjemploEnumerado2">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploEnumerado2\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploEnumerado2\javadoc.xml"/>
+			</section>
+			<section name="trabajo casa">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\trabajo casa\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\trabajo casa\javadoc.xml"/>
+			</section>
+			<section name="EjemploAbstractaPolimorfisimo">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploAbstractaPolimorfisimo\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploAbstractaPolimorfisimo\javadoc.xml"/>
+			</section>
+			<section name="TEMA 3">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\TEMA 3\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\TEMA 3\javadoc.xml"/>
+			</section>
+			<section name="Tema4">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\Desktop\maquina"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema4\javadoc.xml"/>
+			</section>
+			<section name="examen_0.1">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\examen_0.1\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\examen_0.1\javadoc.xml"/>
+			</section>
+			<section name="Ejemplo_try">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\Ejemplo_try\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\Ejemplo_try\javadoc.xml"/>
+			</section>
+			<section name="Practica_5">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Practica_5\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Practica_5\javadoc.xml"/>
+			</section>
+			<section name="ClasesProgramacion">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\ClasesProgramacion\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\ClasesProgramacion\javadoc.xml"/>
+			</section>
+			<section name="LordRings">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\Desktop\Ejercico.Entorno\LordRings\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema04.Eje03.zip_expanded\LordRings\javadoc.xml"/>
+			</section>
+			<section name="Chuleta examen.zip_expanded">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\javadoc.xml"/>
+			</section>
+			<section name="Tema 1">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema 1\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema 1\javadoc.xml"/>
+			</section>
+			<section name="Relacion6">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Relacion6\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Relacion6\javadoc.xml"/>
+			</section>
+			<section name="practica_examen">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\practica_examen\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\practica_examen\javadoc.xml"/>
+			</section>
+			<section name="SanchezAitorEjercico4">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\SanchezAitorEjercico4\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\SanchezAitorEjercico4\javadoc.xml"/>
+			</section>
+			<section name="Tema 5">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema 5\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Tema 5\javadoc.xml"/>
+			</section>
+			<section name="Entorno_de_desarrolo">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Entorno_de_desarrolo\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Entorno_de_desarrolo\javadoc.xml"/>
+			</section>
+			<section name="tema 2">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\tema 2\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\tema 2\javadoc.xml"/>
+			</section>
+			<section name="Practica_Examen_Simple">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\Practica_Examen_Simple\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\Chuleta examen.zip_expanded\Practica_Examen_Simple\javadoc.xml"/>
+			</section>
+			<section name="SanchezAitorPractica7">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\SanchezAitorPractica7\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\SanchezAitorPractica7\javadoc.xml"/>
+			</section>
+			<section name="EjemploClaseAbstracta">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploClaseAbstracta\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploClaseAbstracta\javadoc.xml"/>
+			</section>
+			<section name="EjemploEnumerado3">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploEnumerado3\doc"/>
+				<item key="antpath" value="C:\Users\Aitor\eclipse-workspace-PROGRAMACION\EjemploEnumerado3\javadoc.xml"/>
+			</section>
+		</section>
+	</section>
+	<section name="NewEnumCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="504"/>
+		<item key="DIALOG_Y_ORIGIN" value="68"/>
+		<item key="DIALOG_WIDTH" value="543"/>
+		<item key="DIALOG_HEIGHT" value="521"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="d.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="128"/>
+		<item key="DIALOG_Y_ORIGIN" value="7"/>
+		<item key="DIALOG_WIDTH" value="741"/>
+		<item key="DIALOG_HEIGHT" value="816"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.wizards.buildpaths.NewVariableEntryDialog">
+		<item key="DIALOG_X_ORIGIN" value="182"/>
+		<item key="DIALOG_Y_ORIGIN" value="5"/>
+		<item key="DIALOG_WIDTH" value="574"/>
+		<item key="DIALOG_HEIGHT" value="410"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

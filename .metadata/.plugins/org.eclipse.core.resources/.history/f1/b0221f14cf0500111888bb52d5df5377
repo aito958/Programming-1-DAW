@@ -1,0 +1,63 @@
+package testRectangulo;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+@RunWith(value = Parameterized.class)
+public class RectanguloTest {
+
+	Rectangulo rect;
+	int ancho;
+	int longuitud;
+	int area;
+	int perimetro;
+
+	public RectanguloTest(int ancho, int aera, int perimetro, int longuitud) {
+		this.ancho = ancho;
+		this.area = area;
+		this.longuitud = longuitud;
+		this.perimetro = perimetro;
+
+	}
+
+	public static Collection <Object[]> datos(){
+		return Arrays.asList(new Object[] [] { 
+			{2,2,4,8},
+			{3,2,6,10}
+		});
+	}
+
+	@Before
+	public void antes() {
+		rect = new Rectangulo();
+		rect.setAncho(2);
+		rect.setLonguitud(2);
+		System.out.println("Hola");
+	}
+
+	@Test
+	public void testArea() {
+
+		assertEquals(4, rect.area());
+	}
+
+	@Test
+	public void testPerimetro() {
+
+		assertEquals(8, rect.perimetro());
+	}
+
+	@After
+	public void despues() {
+		System.out.println("Adios");
+	}
+
+}

@@ -1,0 +1,95 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class voleyCorregido {
+
+	private static final int LIMITE_1_Y_2_SET = 21;
+	private static final int CAMBIOS_DE_CAMPO_1_Y_2_SET = 7;
+	private static final int LIMITE_3_SET = 15;
+	private static final int CAMBIOS_DE_CAMPO_3_SET = 5;
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int puntosEquipo1 = 0;
+		int puntosEquipo2 = 0;
+		int setsEquipo1 = 0;
+		int setsEquipo2 = 0;
+
+		int limitePuntosSet = LIMITE_1_Y_2_SET;
+		int cambioCampoSet = CAMBIOS_DE_CAMPO_1_Y_2_SET;
+		
+		System.out.println("Bienvenido al marcador de voleybol");
+
+		System.out.println("introduce el nombre del primer equipo");
+		String nombreEquipo1 = teclado.next();
+
+		System.out.println("introduce el nombre del segundo equipo");
+		String nombreEquipo2 = teclado.next();
+
+		String equipoAlSaque = "";
+
+		Random aleatorio = new Random();
+		if (aleatorio.nextBoolean()) {
+			equipoAlSaque = nombreEquipo1;
+
+		} else {
+			equipoAlSaque = nombreEquipo2;
+		}
+
+		do {
+			System.out.println("Saca el equipo" + equipoAlSaque);
+			System.out.println("¿Quien ha ganado el punto?");
+			String ganadorDelPunto = teclado.next();
+
+			if (ganadorDelPunto.equalsIgnoreCase(nombreEquipo1)) {
+				puntosEquipo1++;
+				equipoAlSaque = nombreEquipo1;
+			} else if (ganadorDelPunto.equalsIgnoreCase(nombreEquipo2)) {
+				puntosEquipo2++;
+				equipoAlSaque = nombreEquipo2;
+
+			} else {
+				System.out.println("Error, introduce el nombre del equipo");
+			}
+
+			if ((puntosEquipo1 + puntosEquipo2) % cambioCampoSet == 0) {
+				System.out.println("Cambio de campo");
+			}
+
+			if (puntosEquipo1 == limitePuntosSet) {
+				setsEquipo1++;
+				puntosEquipo1 = 0;
+				puntosEquipo2 = 0;
+				if ((setsEquipo1 + setsEquipo2) == 2) {
+					limitePuntosSet = LIMITE_3_SET;
+					cambioCampoSet  =CAMBIOS_DE_CAMPO_3_SET;
+				}
+
+			}
+			if (puntosEquipo2 == limitePuntosSet) {
+				setsEquipo2++;
+				puntosEquipo1 = 0;
+				puntosEquipo2 = 0;
+				if ((setsEquipo1 + setsEquipo2) == 2) {
+					limitePuntosSet = LIMITE_3_SET;
+					cambioCampoSet  =CAMBIOS_DE_CAMPO_3_SET;
+					
+					
+				}
+			}
+
+			System.out.println("Set " + setsEquipo1 + " Puntos:" + puntosEquipo1 + " " + nombreEquipo1);
+			System.out.println("Set " + setsEquipo2 + " Puntos:" + puntosEquipo2 + " " + nombreEquipo2);
+
+		} while (!(setsEquipo1 == 2) && !(setsEquipo2 == 2));
+
+		if (setsEquipo1 == 2) {
+			System.out.println("Gana el equipo0" + nombreEquipo1);
+		}
+
+		if (setsEquipo1 == 2) {
+			System.out.println("Gana el equipo0" + nombreEquipo2);
+		}
+	}
+}

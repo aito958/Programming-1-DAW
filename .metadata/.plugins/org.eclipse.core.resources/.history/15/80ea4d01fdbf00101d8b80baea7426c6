@@ -1,0 +1,86 @@
+package RELACIONString4;
+
+public class Stwich {
+
+	public static void main(String[] args) {
+
+		String cadena1 = "Hola";
+		String cadena2 = cadena1 + " , ¿que tal?";
+		System.out.println(cadena2);
+		{
+			{
+			}
+		}
+
+		String cadena3 = "asdf";
+		String cadena4 = cadena3.replace('a', 'n');
+		System.out.println(cadena4);
+	
+		{	
+			{
+	
+			}
+	
+		}
+	String cadena5 = "   hola mundo   ";
+	String cadena6 = cadena5.trim();
+	System.out.println(cadena6);
+	
+	{	
+		{
+
+		}
+
+	}
+	
+	
+	String cadena7 = "   hola mundo   ";
+	String cadena8 = cadena7.replace(" ","");
+	System.out.println(cadena8);
+	
+	
+	{	
+		{
+
+		}
+
+	}
+	
+	
+	String cadena9 = "hamburgesa";
+	String cadena10 = cadena9.substring(3, 5);
+	System.out.println(cadena10);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+}
+
+
+	
+	
+

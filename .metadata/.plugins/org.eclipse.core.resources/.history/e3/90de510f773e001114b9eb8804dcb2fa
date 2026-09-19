@@ -1,0 +1,32 @@
+package relacion11.MaterialEjercicio03;
+
+import java.time.LocalDate;
+
+public class Historial {
+	
+	String Url;
+	String fecha;
+	String hora;
+	String localDate;
+	
+	
+	
+	public void annadirNuevaVisitaPaginaWeb(VisitaPaginaWeb visita) {
+		
+	}
+
+
+
+	public char[] consultarHistorialPorDia(LocalDate fecha2) {
+
+		return null;
+	}
+
+
+
+	public void borrarHistorial() {
+
+		
+	}
+
+}

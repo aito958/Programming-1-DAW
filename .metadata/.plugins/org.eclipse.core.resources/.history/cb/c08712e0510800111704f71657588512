@@ -1,0 +1,81 @@
+package POO_II;
+class Producto {
+    private static int ultimoCodigo = 0;  
+    private int codigo;
+    private String descripcion;
+    private double precioSinIva;
+    private String categoria;
+    
+    public Producto(String descripcion, double precioSinIva, String categoria) {
+        this.codigo = ++ultimoCodigo;  
+        this.descripcion = descripcion;
+        this.precioSinIva = precioSinIva;
+        this.categoria = categoria;
+    }
+    
+    
+    
+    public static int getUltimoCodigo() {
+		return ultimoCodigo;
+	}
+
+
+
+	public static void setUltimoCodigo(int ultimoCodigo) {
+		Producto.ultimoCodigo = ultimoCodigo;
+	}
+
+
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+	public double getPrecioSinIva() {
+		return precioSinIva;
+	}
+
+
+	public void setPrecioSinIva(double precioSinIva) {
+		this.precioSinIva = precioSinIva;
+	}
+
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+
+	public double getPrecioConIva() {
+        return precioSinIva;
+    }
+    
+    @Override
+    public String toString() {
+        return "Prod " + codigo + ": " + descripcion + 
+               " | Sin IVA: " + precioSinIva + 
+               "€ | Con IVA: " + String.format("%.2f", getPrecioConIva()) + "€ | " + categoria;
+    }
+}

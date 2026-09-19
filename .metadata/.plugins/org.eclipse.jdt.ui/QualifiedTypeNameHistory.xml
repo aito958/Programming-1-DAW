@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jdk.internal.misc.FileSystemOption"/>
+    <fullyQualifiedTypeName name="com.sun.imageio.stream.StreamCloser.CloseAction"/>
+    <fullyQualifiedTypeName name="java.nio.channels.ClosedByInterruptException"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.tools.SysPropsDumper"/>
+    <fullyQualifiedTypeName name="com.sun.tools.classfile.StackMapTable_attribute.same_frame"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="java.lang.EnumConstantNotPresentException"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="java.lang.MatchException"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.Match"/>
+    <fullyQualifiedTypeName name="Coche"/>
+    <fullyQualifiedTypeName name="java.lang.StackOverflowError"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+    <fullyQualifiedTypeName name="excepciones.DivisionEntreCeroException"/>
+    <fullyQualifiedTypeName name="jdk.internal.org.jline.reader.impl.history.DefaultHistory"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.operations.Equals"/>
+    <fullyQualifiedTypeName name="pasaPalabra.Pregunta"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.launcher.Main"/>
+    <fullyQualifiedTypeName name="pasaPalabra.TextosPreguntas"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="Carta.Carta"/>
+    <fullyQualifiedTypeName name="Clave"/>
+    <fullyQualifiedTypeName name="seguridad.Clave"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="Relacion_10.Empleado"/>
+    <fullyQualifiedTypeName name="Relacion10_Ejerx3.Vehiculo"/>
+    <fullyQualifiedTypeName name="Relacion10_Ejerx3.TipoGama"/>
+    <fullyQualifiedTypeName name="Relacion10_Ejerc6.Polideportivo"/>
+    <fullyQualifiedTypeName name="Relacion10_Ejerc6.Edificio"/>
+    <fullyQualifiedTypeName name="DarLaVuelta"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="relacion11.MaterialEjercicio06.EntradaDiccionario"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+</qualifiedTypeNameHistroy>

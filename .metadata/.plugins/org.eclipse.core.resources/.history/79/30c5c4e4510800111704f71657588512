@@ -1,0 +1,26 @@
+package POO_II;
+
+import java.util.Scanner;
+
+public class Almacen {
+    
+    public static void main(String[] args) {
+       
+    	Producto electronica = new  Producto ("Electrónica", 0.21, null);
+        Producto alimentacion = new Producto ("Alimentación", 0.10, null);
+        
+        Producto tv = new Producto("Televisor 55\"", 499.99, electronica);
+        Producto pan = new Producto("Pan integral", 1.20, alimentacion);
+        Producto movil = new Producto("Smartphone", 299.00, electronica);
+        
+        System.out.println(tv);
+        System.out.println(pan);
+        System.out.println(movil);
+        
+        pan.setCategoria(electronica);
+        System.out.println("\nPan con nueva categoría: " + pan);
+        
+        tv.setPrecioSinIva(450.00);
+        System.out.println("TV precio nuevo: " + tv);
+    }
+}

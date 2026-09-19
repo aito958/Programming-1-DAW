@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Temporizator2000 {
+	
+	private static final Scanner teclado = new Scanner(System.in);
+	public static void main(String[] args) {
+
+		System.out.println("Bienvenido a Temporizator 2000, el mejor temporizador del mundo");
+		System.out.println("¿Cuál es tu nombre?");
+		
+		String  nombreJuagador = teclado.nextLine();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

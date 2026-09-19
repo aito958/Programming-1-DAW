@@ -1,0 +1,32 @@
+package tareaGeometria;
+
+public class Cuenta {
+	
+	private double  saldoCuenta;
+	double registro;
+	double numIngresos;
+	int numRegistro;
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+package relacion11.MaterialEjercicio03;
+
+public class VisitaPaginaWebException extends Exception {
+
+	public VisitaPaginaWebException(String mensaje) {
+		super(mensaje);
+	}
+	
+}

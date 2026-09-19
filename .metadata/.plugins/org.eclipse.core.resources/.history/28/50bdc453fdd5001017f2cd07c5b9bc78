@@ -1,0 +1,262 @@
+package RELACIONString4;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Casino {
+
+    private static final int BASTOS = 1;
+    private static final int COPAS = 2;
+    private static final int ESPADAS = 3;
+    private static final int OROS = 4;
+    private static Scanner teclado = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        System.out.println("Bienvenido al casino");
+        double saldo;
+        do {
+            System.out.println("¿Cuanto dinero quieres perder hoy ?");
+            saldo = teclado.nextDouble();
+            if (saldo <= 0) {
+                System.out.println("Saldo incorrecto, debe ser > 0");
+            }
+        } while (saldo <= 0);   // valida saldo inicial
+
+        int opcion = 0;
+
+        do {
+            System.out.println("Bienvenido al casino Admiral Algeciras");
+
+            System.out.println("1.Lanzar una moneda");
+            System.out.println("2.Apuesta al rojo o al negro");
+            System.out.println("3.Lanzar un dado");
+            System.out.println("4.Sacar una carta ");
+            System.out.println("5.Sacar dos carta");
+            System.out.println("6.Salir");
+            System.out.println("Dispones de: " + saldo + "€");
+
+            opcion = teclado.nextInt();
+            double saldoApuesta;
+
+            switch (opcion) {
+            case 1:
+                System.out.println("1.Lanzar una moneda");
+                saldoApuesta = solicitarApuesta(saldo);
+                saldo -= saldoApuesta;
+                saldo += moneda(saldoApuesta, saldo);
+                break;
+
+            case 2:
+                System.out.println("2.Apuesta al rojo o al negro");
+                saldoApuesta = solicitarApuesta(saldo);
+                saldo -= saldoApuesta;
+                saldo += rojoOnegro(saldoApuesta, saldo);
+                break;
+
+            case 3:
+                System.out.println("3.Lanzar un dado");
+                saldoApuesta = solicitarApuesta(saldo);
+                saldo -= saldoApuesta;
+                saldo += dado(saldoApuesta, saldo);
+                break;
+
+            case 4:
+                System.out.println("4.Sacar una carta");
+                saldoApuesta = solicitarApuesta(saldo);
+                saldo -= saldoApuesta;
+                saldo += carta(saldoApuesta, saldo);
+                break;
+
+            case 5:
+                System.out.println("5.Sacar dos cartas");
+                saldoApuesta = solicitarApuesta(saldo);
+                saldo -= saldoApuesta;
+                saldo += dobleCarta(saldoApuesta, saldo);
+                break;
+
+            case 6:
+                System.out.println("6.Salir");
+                break;
+
+            default:
+                System.out.println("Elige una opcion entre 1 y 6");
+                break;
+            }
+
+        } while (opcion != 6 && saldo > 0);
+
+        if (saldo == 0) {
+            System.out.println("Te hemos desplumado, ya te puedes ir ");
+        }
+    }
+
+    private static double solicitarApuesta(double saldo) {
+        boolean apuestaErronea = true;
+        double apuesta = 0;
+        do {
+            System.out.println("¿Cuanto vas a apostar?");
+            apuesta = teclado.nextDouble();
+            if (apuesta <= saldo && apuesta > 0) {
+                apuestaErronea = false;
+            } else {
+                System.out.println("No puedes apostar esa cantidad");
+            }
+        } while (apuestaErronea);
+        return apuesta;
+    }
+
+    private static double dobleCarta(double saldoApuesta, double saldo) {
+        Random aleatorio = new Random();
+        int numeroUsuario = aleatorio.nextInt(1, 11);
+        int paloUsuario = aleatorio.nextInt(1, 5);
+
+        int numeroCasino;
+        int paloCasino;
+        do {
+            numeroCasino = aleatorio.nextInt(1, 11);
+            paloCasino = aleatorio.nextInt(1, 5);
+        } while (numeroCasino == numeroUsuario && paloCasino == paloUsuario);
+
+        String nombrePaloUsuario = nombrePalo(paloUsuario);
+        String nombrePaloCasino = nombrePalo(paloCasino);
+
+        System.out.println("Carta del usuario: " + numeroUsuario + " - " + nombrePaloUsuario);
+        System.out.println("Carta del casino : " + numeroCasino + " - " + nombrePaloCasino);
+
+        if (numeroUsuario > numeroCasino) {
+            System.out.println("Enhorabuena has ganado, tu número de carta es mayor");
+            saldoApuesta = saldoApuesta * 1.5;
+
+        } else if (numeroUsuario == numeroCasino) {
+            if (paloUsuario > paloCasino) {
+                System.out.println("Mismo número, ganas por palo más alto");
+                saldoApuesta = saldoApuesta * 3;
+            } else {
+                System.out.println("Mismo número, pero tu palo es más bajo. Pierdes");
+                saldoApuesta = 0;
+            }
+
+        } else {
+            System.out.println("Has perdido, tu número es menor");
+            saldoApuesta = 0;
+        }
+
+        return saldoApuesta;
+    }
+
+    private static String nombrePalo(int paloUsuario) {
+        String nombre;
+        switch (paloUsuario) {
+        case BASTOS:
+            nombre = "Bastos";
+            break;
+        case COPAS:
+            nombre = "Copas";
+            break;
+        case ESPADAS:
+            nombre = "Espadas";
+            break;
+        case OROS:
+            nombre = "Oros";
+            break;
+        default:
+            nombre = "";
+            break;
+        }
+        return nombre;
+    }
+
+    private static double carta(double saldoApuesta, double saldo) {
+
+        System.out.println("Cual numero vas a elegir? Del 1 al 10");
+        int eleccionNumero = teclado.nextInt();
+
+        System.out.println("Cual palo  vas a elegir? 1.Basto , 2.Copas , 3.Espadas, 4.Oros");
+        int eleccionPalo = teclado.nextInt();
+
+        Random aleatorio = new Random();
+        int numero = aleatorio.nextInt(1, 11);
+        int palo = aleatorio.nextInt(1, 5);
+
+        if (eleccionNumero == numero && eleccionPalo == palo) {
+            System.out.println("Enhorabuena has acertado el palo y el numero");
+            saldoApuesta = saldoApuesta * 5;
+
+        } else if (eleccionNumero == numero) {
+            System.out.println("Enhorabuena has acertado el numero");
+            saldoApuesta = saldoApuesta * 3;
+
+        } else if (eleccionPalo == palo) {
+            System.out.println("Enhorabuena has acertado el palo");
+            saldoApuesta = saldoApuesta * 2;
+
+        } else {
+            System.out.println("Has perdido");
+            saldoApuesta = 0;
+
+        }
+        return saldoApuesta;
+    }
+
+    private static double dado(double saldoApuesta, double saldo) {
+        System.out.println("A por cual número vas  a apostar");
+        int eleccion = teclado.nextInt();
+        Random aleatorio = new Random();
+        if (eleccion == aleatorio.nextInt(1, 7)) {
+            saldoApuesta = saldoApuesta * 6;
+            System.out.println("Has ganado ");
+        } else {
+            saldoApuesta = 0;
+            System.out.println("Has  perdido");
+        }
+        return saldoApuesta;
+    }
+
+    private static double moneda(double saldoApuesta, double saldo) {
+        System.out.println("¿A por cual vas a apostar?");
+        String eleccion = teclado.next();
+        Random aleatorio = new Random();
+
+        if (aleatorio.nextBoolean()) {
+            if (eleccion.equalsIgnoreCase("Cara")) {
+                System.out.println("Ha salido cara");
+                saldoApuesta = saldoApuesta * 2;
+                System.out.println("Enhorabuena has ganado");
+            } else {
+                System.out.println("Ha salido cruz");
+                saldoApuesta = 0;
+                System.out.println("Has perdido");
+            }
+        } else {
+            if (eleccion.equalsIgnoreCase("Cruz")) {
+                saldoApuesta = saldoApuesta * 2;
+                System.out.println("Enhorabuena has ganado");
+            } else {
+                saldoApuesta = 0;
+                System.out.println("Has perdido");
+            }
+        }
+        return saldoApuesta;
+    }
+
+    private static double rojoOnegro(double saldoApuesta, double saldo) {
+        System.out.println("¿A por cual vas a elegir? Rojo o Negro");
+        String eleccion = teclado.next();
+        Random aleatorio = new Random();
+        String color;
+        if (aleatorio.nextBoolean()) {
+            color = "Rojo";
+        } else {
+            color = "Negro";
+        }
+        if (eleccion.equals(color)) {
+            saldoApuesta = saldoApuesta * 2;
+            System.out.println("Enhorabuena has ganado");
+        } else {
+            saldoApuesta = 0;
+            System.out.println("Has perdido");
+        }
+        return saldoApuesta;
+    }
+}

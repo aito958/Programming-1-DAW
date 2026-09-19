@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;contraseñaPosible&apos; in &apos;Clave.fuerzaBruta(...)&apos; to &apos;Clave&apos;&#x0D;&#x0A;- Original project: &apos;CajaFuete&apos;&#x0D;&#x0A;- Original element: &apos;Clave.fuerzaBruta(String).contraseñaPosible&apos;&#x0D;&#x0A;- Renamed element: &apos;contraseñaPosible&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;contraseñaPosible&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Clave.java[Clave~fuerzaBruta~QString;@contraseñaPosible!381!405!388!404!QString;!0!false" name="Clave" references="true" stamp="1771863915027" version="1.0"/>
+</session>

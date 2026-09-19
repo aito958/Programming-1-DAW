@@ -1,0 +1,38 @@
+package tareaGeometria;
+
+public class circulo extends Figura {
+
+	private double radio;
+	public final double PI = 3.14;
+	private final int x;
+	private final int y;
+
+	public circulo(double radio, int x, int y) {
+		this.radio = radio;
+		super.x = x;
+		super.y = y;
+
+	}
+
+	public double getRadio() {
+		return this.radio;
+
+	}
+
+	public void setRadio(double radio) throws CirculoConRadioNegativoException {
+		if (radio > 0) {
+			this.radio = radio;
+		}else {
+			throw new CirculoConRadioNegativoException();
+		}
+	}
+
+	public double calculoArea() {
+		return PI * Math.pow(radio, 2);
+
+	}
+
+	public String toString() {
+		return "circulo [radio=" + radio + ", PI=" + PI + " Coordenadas" + ": x=" + x + ", y=" + y + "]";
+	}
+}

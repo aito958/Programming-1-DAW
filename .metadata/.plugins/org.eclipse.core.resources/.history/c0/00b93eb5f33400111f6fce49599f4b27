@@ -1,0 +1,10 @@
+
+public class Ejemplos {
+
+	public static void main(String[] args) {
+
+		int x = 123456789;
+	
+	}
+
+}

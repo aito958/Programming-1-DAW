@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class voleyhardcore {
+
+    private static final int PUNTOS_GANAR = 21;
+    private static final int MATCH_POINT = 2;
+
+    private static Scanner teclado = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        int puntos_equipoA = 0;
+        int puntos_equipoB = 0;
+
+        do {
+
+            System.out.println("Introduce cual equipo ha marcado puntos");
+            String puntos = teclado.nextLine().toUpperCase();
+
+            if ((puntos_equipoA == PUNTOS_GANAR - 2 && puntos_equipoA >= puntos_equipoB + MATCH_POINT - 2) || (puntos_equipoB == PUNTOS_GANAR - 2 && puntos_equipoB >= puntos_equipoA + MATCH_POINT - 2)) {
+                System.out.println("!MATCH POINT!");
+
+                if (puntos_equipoA >= puntos_equipoB) {
+                    System.out.println("Match point para el equipo A");
+                } else {
+                    System.out.println("Match point para el equipo B");
+                }
+            }
+
+            if(puntos.equals("A")){
+                puntos_equipoA++;
+
+            }else {
+                puntos_equipoB++;
+            }
+
+            System.out.println("Marcador A-"+puntos_equipoA+ " Marcador B-"+puntos_equipoB);
+
+        }while(!((puntos_equipoA >=  PUNTOS_GANAR && puntos_equipoA  >= MATCH_POINT )|| ( puntos_equipoB >= PUNTOS_GANAR && puntos_equipoB >= MATCH_POINT)));
+
+        System.out.println("El partido cocluye con el marcador  :A-"+puntos_equipoA +"B-"+puntos_equipoB );
+
+        if(puntos_equipoA > puntos_equipoB) {
+            System.out.println("El equpo A ha ganado el partido");
+        }else {
+            System.out.println("El equipo B ha ganado el partido");
+        }
+
+    }  
+}      

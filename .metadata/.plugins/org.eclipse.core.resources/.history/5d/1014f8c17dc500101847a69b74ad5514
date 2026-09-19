@@ -1,0 +1,53 @@
+package RELACIONString4;
+
+import java.util.Scanner;
+
+public class ejercicio_6 {
+
+ 
+
+    private static Scanner teclado = new Scanner(System.in);
+
+
+    public static void main(String[] args) {
+    	
+    	System.out.println("Introduce unan frase o palabra");
+    	String frase = teclado.nextLine();
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+}
+}

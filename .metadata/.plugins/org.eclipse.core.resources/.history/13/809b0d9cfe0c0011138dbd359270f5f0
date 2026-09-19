@@ -1,0 +1,23 @@
+package RELACION08_ARRAYS;
+
+public class Ejercicio_1 {
+	public static void main(String[] args) {
+    
+	int []	 listaNumeros;
+	listaNumeros = new int [20];
+	
+	for (int temporal : listaNumeros) {
+		System.out.println(temporal);	
+		
+	}
+		
+	System.out.println("---------------");
+	for (int i = listaNumeros.length-1; i >= 0; i--) {
+		System.out.println(listaNumeros[i]);
+		
+	}
+		
+		
+		
+	}
+}

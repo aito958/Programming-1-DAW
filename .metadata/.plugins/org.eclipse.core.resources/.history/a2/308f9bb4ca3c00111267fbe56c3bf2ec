@@ -1,0 +1,103 @@
+package relacion11.MaterialEjercicio01;
+
+import java.util.*;
+
+public class Equipo {
+
+	private String nombreEquipo;
+
+	// Conjunto de alumnos (HashSet evita duplicados automáticamente)
+	private HashSet<Alumno> conjuntoAlumnos;
+
+	/**
+	 * Constructor del equipo. Inicializa el nombre y el conjunto de alumnos vacío.
+	 */
+	public Equipo(String nombre) {
+		this.nombreEquipo = nombre;
+		this.conjuntoAlumnos = new HashSet<>(); // IMPORTANTE: inicializar el HashSet
+	}
+
+	public String getNombreEquipo() {
+		return nombreEquipo;
+	}
+
+	public void setNombreEquipo(String nombreEquipo) {
+		this.nombreEquipo = nombreEquipo;
+	}
+
+	/**
+	 * Inserta un alumno en el equipo. Lanza excepción si el alumno ya existe.
+	 */
+	public void insertarAlumno(Alumno nuevoAlumno) throws EquipoException {
+
+		// Si el alumno ya está en el HashSet, no se puede añadir
+		if (conjuntoAlumnos.contains(nuevoAlumno)) {
+			throw new EquipoException("El alumno ya existe en el equipo");
+		}
+
+		// Si no está, se añade correctamente
+		conjuntoAlumnos.add(nuevoAlumno);
+	}
+
+	/**
+	 * Borra un alumno del equipo. Lanza excepción si el alumno NO existe.
+	 */
+	public void borrarAlumno(Alumno alumnoABorrar) throws EquipoException {
+		if (!conjuntoAlumnos.remove(alumnoABorrar)) {
+			throw new EquipoException("El alumno NO existe en el equipo");
+		}
+	}
+
+	/**
+	 * Busca un alumno en el equipo. Devuelve el alumno si está, o null si no
+	 * existe.
+	 */
+	public Alumno buscarAlumno(Alumno alumnoBuscado) {
+
+		if (conjuntoAlumnos.contains(alumnoBuscado)) {
+			return alumnoBuscado;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Fusiona dos equipos creando uno nuevo. El nuevo equipo contiene TODOS los
+	 * alumnos de ambos equipos.
+	 */
+	public Equipo fusionDeEquipos(Equipo otro, String nombre) {
+
+		// Se crea un nuevo equipo con el nombre indicado
+		Equipo fusion = new Equipo(nombre);
+
+		fusion.conjuntoAlumnos.addAll(this.conjuntoAlumnos); // Añade todos los alumnos del equipo actual
+		fusion.conjuntoAlumnos.addAll(otro.conjuntoAlumnos);
+		return fusion;
+	}
+
+	/**
+	 * Crea un nuevo equipo con los alumnos que están en AMBOS equipos. Es decir, la
+	 * intersección de conjuntos.
+	 */
+	public Equipo intersecionDeEquipos(Equipo otro, String nombre) {
+
+		// Nuevo equipo para almacenar la intersección
+		Equipo interseccion = new Equipo(nombre);
+
+		// Recorremos los alumnos del equipo actual
+		for (Alumno alumno : this.conjuntoAlumnos) {
+
+			// Si el otro equipo también lo tiene, lo añadimos
+			if (otro.conjuntoAlumnos.contains(alumno)) {
+				interseccion.conjuntoAlumnos.add(alumno);
+			}
+		}
+
+		return interseccion;
+	}
+
+	@Override
+	public String toString() {
+		return "Equipo [nombreEquipo=" + nombreEquipo + ", conjuntoAlumnos=" + conjuntoAlumnos + "]";
+	}
+}

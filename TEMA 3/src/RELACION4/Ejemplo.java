@@ -1,0 +1,80 @@
+package RELACION4;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Ejemplo {
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int opcion;
+		do {
+			mostrarMenu();
+
+			opcion = solicitarOpcion();
+
+			tratarOpcionesMenu(opcion);
+		} while (opcion != 3);
+
+	}
+
+	private static void mostrarMenu() {
+		System.out.println("MENU CALCULADORA");
+		System.out.println("1. Sumar loca");
+		System.out.println("2. Operecion loca");
+		System.out.println("3. Fin");
+
+	}
+
+	private static int solicitarOpcion() {
+
+		int opcionElegida;
+		do {
+			System.out.println("Introduce opcion (1-3):");
+			opcionElegida = Integer.parseInt(teclado.nextLine());
+
+		} while (opcionElegida < 1 || opcionElegida > 5);
+		return opcionElegida;
+
+	}
+
+	private static void tratarOpcionesMenu(int opcion) {
+	
+
+		switch (opcion) {
+		case 1:
+			Random aleatorio = new Random();
+			int numAleatorio = aleatorio.nextInt(100) + 1;
+			System.out.println("El resultado de la suma loca es " + (numAleatorio + numAleatorio));
+			break;
+		case 2:
+			Random aleatorio1 = new Random();
+			int num3 = aleatorio1.nextInt(100) + 1;
+			int num4 = aleatorio1.nextInt(100) + 1;
+
+			int resultado;
+
+			if (num4 >= 50) {
+				resultado = num3 - num4;
+				System.out.println("El resultado de la operación loca es : " + num3 + "-" + num4 + "=" + resultado);
+
+			} else {
+				resultado = num3 + num4;
+				System.out.println("El resultado de la operación loca es : " + num3 + "+" + num4 + "=" + resultado);
+
+			}
+
+			break;
+		case 3:
+
+			System.out.println("Has elegido que terminase el cálculo ");
+
+			break;
+
+		}
+
+	}
+
+}

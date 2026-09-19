@@ -1,0 +1,95 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Examen2 {
+
+	public static void main(String[] args) {
+
+
+	private static Scanner teclado = new Scanner teclado(System.in);
+
+	int opcion;do
+	{
+		mostrarMenu();
+
+		opcion = solicitarOpcion();
+
+		tratarOpcionesMenu(opcion);
+	}while(opcion!=4);
+
+	}
+
+	private static void mostrarMenu() {
+		System.out.println("--- MENU BARAJA ESPAÑOLA ---");
+		System.out.println("1. Muestra un palo");
+		System.out.println("2. Mostrar baraja");
+		System.out.println("3. Carta aleatoria");
+		System.out.println("4. Salir");
+
+	}
+
+	private static int solicitarOpcion() {
+
+		int opcionElegida;
+		do {
+			System.out.println("Introduce opcion (1-4):");
+			opcionElegida = Integer.parseInt(teclado.nextLine());
+
+		} while (opcionElegida < 1 || opcionElegida > 5);
+		return opcionElegida;
+
+	}
+
+	private static void tratarOpcionesMenu(int opcion) {
+		int B;
+		int C;
+		int E;
+		int O;
+		int S;
+		int CA;
+		int R;
+		switch (opcion) {
+		case 1:
+			Random aleatorio = new Random();
+			int numAleatorio = aleatorio.nextInt(100) + 1;
+			System.out.println("El resultado de la suma loca es " + (numAleatorio + numAleatorio));
+			break;
+		case 2:
+			Random aleatorio1 = new Random();
+			int num3 = aleatorio1.nextInt(100) + 1;
+			int num4 = aleatorio1.nextInt(100) + 1;
+
+			int resultado;
+
+			if (num4 >= 50) {
+				resultado = num3 - num4;
+				System.out.println("El resultado de la operación loca es : " + num3 + "-" + num4 + "=" + resultado);
+
+			} else {
+				resultado = num3 + num4;
+				System.out.println("El resultado de la operación loca es : " + num3 + "+" + num4 + "=" + resultado);
+
+			}
+
+			break;
+		case 3:
+
+			System.out.println("Has elegido que terminase el cálculo ");
+
+			break;
+
+		case 4:
+
+			System.out.println("Fin ");
+
+			break;
+
+		}
+
+	
+
+}
+
+}
+
+

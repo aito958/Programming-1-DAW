@@ -1,0 +1,9 @@
+
+public class Temporizator2000GUI {
+
+	public static void main(String[] args) {
+
+		Jframe ventana = new JFrame("Temporizator 2000");
+	}
+
+}

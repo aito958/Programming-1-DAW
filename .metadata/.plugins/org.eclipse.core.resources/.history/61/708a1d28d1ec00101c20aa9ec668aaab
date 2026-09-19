@@ -1,0 +1,20 @@
+
+public class Coche {
+
+	String color;
+	String marca;
+	String modelo;
+	String matricula;
+	int nivelBateria;
+	
+	public Coche(String color, String marca, String modelo, String matricula, int nivelBateria) {
+		this.color = color;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.matricula = matricula;
+		nivelBateria = 100;
+	}
+	
+	
+	
+}

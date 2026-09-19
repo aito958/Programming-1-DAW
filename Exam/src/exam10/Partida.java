@@ -1,0 +1,29 @@
+package exam10;
+public class Partida {
+
+    public static int enfrentar(Jugador j1, Jugador j2) {
+
+        // Jugadas sacadas a lo bruto 
+        String a = j1.jugar();
+        String b = j2.jugar();
+
+        // Empate sin pensar mucho
+        if (a.equals(b)) {
+            return 0;
+        }
+
+        // Comprobaciones una por una
+        if (a.equals("Piedra") && b.equals("Tijeras")) {
+            return 1;
+        }
+        if (a.equals("Tijeras") && b.equals("Papel")) {
+            return 1;
+        }
+        if (a.equals("Papel") && b.equals("Piedra")) {
+            return 1;
+        }
+
+        // Si no ha ganado jugador 1, pues gana jufador 2
+        return 2;
+    }
+}

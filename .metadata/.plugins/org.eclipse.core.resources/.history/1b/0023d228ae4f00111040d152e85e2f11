@@ -1,0 +1,11 @@
+import java.io.File;
+
+public class Ejercico3 {
+
+	public static void main(String[] args) {
+
+		File f  = new File ("/src/Ejercicio3/Ejercicio3.txt");
+			
+	}
+
+}

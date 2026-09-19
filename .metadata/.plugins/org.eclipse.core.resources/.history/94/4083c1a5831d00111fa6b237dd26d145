@@ -1,0 +1,63 @@
+package ejemplos;
+
+import java.util.Scanner;
+
+public class Conecta4 {
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int tablero[][] = new int[6][7];
+
+		System.out.println("Bienvenido a la batalla del six seven");
+
+		int turnoJugador = 1;
+		do {
+			System.out.println("Empieza el jugador Amarillo" + turnoJugador);
+			System.out.println("Introduce la columna donde quieras colocar la ficha 1-7");
+		
+			int columnaJugador = teclado.nextInt(); // FIXME controlar que el numero sea entre 1 y 7
+
+			jugada(turnoJugador, columnaJugador, tablero);
+
+			for (int i = 0; i < tablero.length; i++) {
+				for (int j = 0; j < tablero[i].length; j++) {
+
+					System.out.print(tablero[i][j]);
+				}
+				System.out.println();
+
+			}
+			if (turnoJugador == 1) {
+				turnoJugador = 2;
+			} else {
+				turnoJugador = 1;
+			}
+		} while (true);
+
+	}
+
+	private static void jugada(int jugador, int columnaJugador, int[][] tablero) {
+		boolean fichaColocada = false;
+		for (int i = tablero.length - 1; i >= 0 && !fichaColocada; i--) {
+			if (tablero[i][columnaJugador - 1] == 0) {
+				tablero[i][columnaJugador - 1] = jugador;
+				fichaColocada = true;
+			}
+
+		}
+	}
+	
+	private static boolean comprobar (int [][] tablero) {
+	
+		boolean finJuego  =false;
+		for (int i  = 0; i< tablero[0].length-3; i++) {
+			for (int j  = 0; j< tablero[i].length; j++) {
+
+		}
+		}
+		
+		return finJuego;
+	}
+}

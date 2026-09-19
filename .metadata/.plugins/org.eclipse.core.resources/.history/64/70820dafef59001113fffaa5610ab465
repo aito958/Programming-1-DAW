@@ -1,0 +1,55 @@
+package com.game.models;
+
+import java.time.LocalDateTime;
+
+public class Partida {
+    private int idPartida;
+    private int idJugador;
+    private int tiempoObjetivo;
+    private double tiempoReal;
+    private double diferencia;
+    private double exactitud;
+    private LocalDateTime fechaPartida;
+    private String nombreJugador;
+
+    public Partida() {}
+
+    public Partida(int idJugador, int tiempoObjetivo, double tiempoReal) {
+        this.idJugador = idJugador;
+        this.tiempoObjetivo = tiempoObjetivo;
+        this.tiempoReal = tiempoReal;
+        this.diferencia = Math.abs(tiempoObjetivo - tiempoReal);
+        this.exactitud = 100 - ((this.diferencia / tiempoObjetivo) * 100);
+    }
+
+    // Getters y Setters
+    public int getIdPartida() { return idPartida; }
+    public void setIdPartida(int idPartida) { this.idPartida = idPartida; }
+
+    public int getIdJugador() { return idJugador; }
+    public void setIdJugador(int idJugador) { this.idJugador = idJugador; }
+
+    public int getTiempoObjetivo() { return tiempoObjetivo; }
+    public void setTiempoObjetivo(int tiempoObjetivo) { this.tiempoObjetivo = tiempoObjetivo; }
+
+    public double getTiempoReal() { return tiempoReal; }
+    public void setTiempoReal(double tiempoReal) { this.tiempoReal = tiempoReal; }
+
+    public double getDiferencia() { return diferencia; }
+    public void setDiferencia(double diferencia) { this.diferencia = diferencia; }
+
+    public double getExactitud() { return exactitud; }
+    public void setExactitud(double exactitud) { this.exactitud = exactitud; }
+
+    public LocalDateTime getFechaPartida() { return fechaPartida; }
+    public void setFechaPartida(LocalDateTime fechaPartida) { this.fechaPartida = fechaPartida; }
+
+    public String getNombreJugador() { return nombreJugador; }
+    public void setNombreJugador(String nombreJugador) { this.nombreJugador = nombreJugador; }
+
+    @Override
+    public String toString() {
+        return String.format("Partida: %s | Objetivo: %d seg | Real: %.2f seg | Exactitud: %.2f%%",
+                nombreJugador, tiempoObjetivo, tiempoReal, exactitud);
+    }
+}

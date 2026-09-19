@@ -1,0 +1,5 @@
+package POO_II;
+
+public class EnteroNegativoException extends Exception {
+
+}

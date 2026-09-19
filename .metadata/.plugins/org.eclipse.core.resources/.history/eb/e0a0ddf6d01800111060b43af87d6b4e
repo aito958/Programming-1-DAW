@@ -1,0 +1,49 @@
+public class PiedraPapelTijeras {
+
+    public static void main(String[] args) {
+
+        Jugador patricio = new Jugador("Patricio", "fijo");
+        Jugador bob = new Jugador("Bob", "random");
+        Jugador calamardo = new Jugador("Calamardo", "ciclo");
+
+        Jugador[] jugadores = {patricio, bob, calamardo};
+        int[] victorias = {0, 0, 0};
+
+        System.out.println("PRUEBA DE 10 PARTIDAS");
+        for (int i = 0; i < 10; i++) {
+            if (Partida.enfrentar(patricio, bob) == 1) victorias[0]++;
+            else if (Partida.enfrentar(patricio, bob) == 2) victorias[1]++;
+
+            if (Partida.enfrentar(patricio, calamardo) == 1) victorias[0]++;
+            else if (Partida.enfrentar(patricio, calamardo) == 2) victorias[2]++;
+
+            if (Partida.enfrentar(calamardo, bob) == 1) victorias[2]++;
+            else if (Partida.enfrentar(calamardo, bob) == 2) victorias[1]++;
+        }
+
+        System.out.println("Victorias:");
+        System.out.println("Patricio: " + victorias[0]);
+        System.out.println("Bob: " + victorias[1]);
+        System.out.println("Calamardo: " + victorias[2]);
+
+        // Reiniciar
+        victorias[0] = victorias[1] = victorias[2] = 0;
+
+        System.out.println("PRUEBA DE 100 PARTIDAS");
+        for (int i = 0; i < 100; i++) {
+            if (Partida.enfrentar(patricio, bob) == 1) victorias[0]++;
+            else if (Partida.enfrentar(patricio, bob) == 2) victorias[1]++;
+
+            if (Partida.enfrentar(patricio, calamardo) == 1) victorias[0]++;
+            else if (Partida.enfrentar(patricio, calamardo) == 2) victorias[2]++;
+
+            if (Partida.enfrentar(calamardo, bob) == 1) victorias[2]++;
+            else if (Partida.enfrentar(calamardo, bob) == 2) victorias[1]++;
+        }
+
+        System.out.println("Victorias:");
+        System.out.println("Patricio: " + victorias[0]+ );
+        System.out.println("Bob: " + victorias[1]);
+        System.out.println("Calamardo: " + victorias[2]);
+    }
+}

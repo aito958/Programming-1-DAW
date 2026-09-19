@@ -1,0 +1,43 @@
+package com.game.database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConexionBD {
+    private static final String URL = "jdbc:mysql://localhost:3306/tiempo_game";
+    private static final String USUARIO = "root";
+    private static final String CONTRASEÑA = "";  // Cambiar si tienes contraseña
+    private static Connection conexion;
+
+    public static Connection conectar() {
+        try {
+            if (conexion == null || conexion.isClosed()) {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                conexion = DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
+                System.out.println("✓ Conexión a BD exitosa");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("✗ Error de conexión: " + e.getMessage());
+        }
+        return conexion;
+    }
+
+    public static void desconectar() {
+        try {
+            if (conexion != null && !conexion.isClosed()) {
+                conexion.close();
+                System.out.println("✓ Desconexión exitosa");
+            }
+        } catch (SQLException e) {
+            System.out.println("✗ Error al desconectar: " + e.getMessage());
+        }
+    }
+
+    public static Connection getConexion() {
+        if (conexion == null) {
+            conectar();
+        }
+        return conexion;
+    }
+}

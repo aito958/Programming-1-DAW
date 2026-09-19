@@ -1,0 +1,31 @@
+
+public class Coche {
+
+	String color;
+	String marca;
+	String modelo;
+	String matricula;
+	int nivelBateria;
+	
+	public Coche(String color, String marca, String modelo, String matricula, int nivelBateria) {
+		this.color = color;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.matricula = matricula;
+		nivelBateria = 100;
+	}
+
+	
+	public String toString() {
+		return "Coche [color=" + color + ", marca=" + marca + ", modelo=" + modelo + ", matricula=" + matricula
+				+ ", nivelBateria=" + nivelBateria + "]";
+	}
+	
+	//PINTAR 
+	
+	public void  pintar(String colorNuevo) {
+		this.color = colorNuevo;
+		
+		
+	}
+}

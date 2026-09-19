@@ -1,0 +1,13 @@
+package relacion11.MaterialEjercicio03;
+
+public class VisitaPaginaWeb {
+
+String Url;
+String fecha;
+String hora;
+VisitaPaginaWeb[] lista;
+
+public VisitaPaginaWeb(String direccion) {
+}
+
+}

@@ -1,0 +1,36 @@
+
+class Producto {
+    private static int ultimoCodigo = 0;  
+    private int codigo;
+    private String descripcion;
+    private double precioSinIva;
+    private String categoria;
+    
+    public Producto(String descripcion, double precioSinIva, Categoria categoria) {
+        this.codigo = ++ultimoCodigo;  
+        this.descripcion = descripcion;
+        this.precioSinIva = precioSinIva;
+        this.categoria = categoria;
+    }
+    
+    // getters y setters
+    public int getCodigo() { return codigo; }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public double getPrecioSinIva() { return precioSinIva; }
+    public void setPrecioSinIva(double precioSinIva) { this.precioSinIva = precioSinIva; }
+    public Categoria getCategoria() { return categoria; }
+    public void setCategoria(Categoria categoria) { this.categoria = categoria; }
+    
+    // precio con IVA
+    public double getPrecioConIva() {
+        return precioSinIva * (1 + categoria.getIva());
+    }
+    
+    @Override
+    public String toString() {
+        return "Prod " + codigo + ": " + descripcion + 
+               " | Sin IVA: " + precioSinIva + 
+               "€ | Con IVA: " + String.format("%.2f", getPrecioConIva()) + "€ | " + categoria;
+    }
+}

@@ -1,0 +1,79 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class voleyCorregido {
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int puntosEquipo1 = 0;
+		int puntosEquipo2 = 0;
+		int setsEquipo1 = 0;
+		int setsEquipo2 = 0;
+
+		System.out.println("Bienvenido al marcador de voleybol");
+
+		System.out.println("introduce el nombre del primer equipo");
+		String nombreEquipo1 = teclado.next();
+
+		System.out.println("introduce el nombre del segundo equipo");
+		String nombreEquipo2 = teclado.next();
+
+		String equipoAlSaque = "";
+
+		Random aleatorio = new Random();
+		if (aleatorio.nextBoolean()) {
+			equipoAlSaque = nombreEquipo1;
+
+		} else {
+			equipoAlSaque = nombreEquipo2;
+		}
+
+		do {
+			System.out.println("Saca el equipo" + equipoAlSaque);
+
+			System.out.println("Quien ha ganado el punto");
+			String ganadorDelPunto = teclado.next();
+
+			if (ganadorDelPunto.equalsIgnoreCase(nombreEquipo1)) {
+				puntosEquipo1++;
+			} else if (ganadorDelPunto.equalsIgnoreCase(nombreEquipo2)) {
+				puntosEquipo2++;
+			} else {
+				System.out.println("Error, introduce el nombre del equipo");
+			}
+
+			
+			if ((puntosEquipo1 + puntosEquipo2) % 7 == 0) {
+				System.out.println("Cambio de campo");
+			}
+
+			if (puntosEquipo1 == 21) {
+				setsEquipo1++;
+				puntosEquipo1 = 0;
+				puntosEquipo2 = 0;
+
+			}
+			if (puntosEquipo2 == 21) {
+				setsEquipo2++;
+				puntosEquipo1 = 0;
+				puntosEquipo2 = 0;
+
+			}
+
+			System.out.println("Set "+setsEquipo1+ " Puntos:"+puntosEquipo1+" " +nombreEquipo1);
+			System.out.println("Set "+setsEquipo2+ " Puntos:"+puntosEquipo2+" " +nombreEquipo2);
+
+			
+		} while (!(setsEquipo1 == 2) && !(setsEquipo2 == 2));
+
+		if (setsEquipo1 == 2) {
+			System.out.println("Gana el equipo0" + nombreEquipo1);
+		}
+
+		if (setsEquipo1 == 2) {
+			System.out.println("Gana el equipo0" + nombreEquipo2);
+		}
+	}
+}

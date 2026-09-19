@@ -1,0 +1,18 @@
+package ARRAYS;
+
+public class EjemploArray {
+
+	public static void main(String[] args) {
+
+		String[] bestJugador = { "Fernando alonso", "lauda", "senna" ," mika", "vettel " };
+
+		for (String tempotal : bestJugador) {
+			System.out.println(tempotal);
+		}
+		System.out.println("---------------");
+		for (int i = bestJugador.length-1; i >= 0; i--) {
+			System.out.println(bestJugador[i]);
+		}
+	}
+
+}

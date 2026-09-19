@@ -1,0 +1,40 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Temporizator2000GUI {
+	
+	static JLabel etiquetaNombreJuagador;
+	static JTextField campoNombreJuagador;
+
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+		
+		JPanel panel = new JPanel();
+		
+		ventana.add(panel);
+		ventana.setSize(500, 500);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		ventana.setVisible(true);
+		
+		
+		
+		
+		
+		
+	}
+
+}

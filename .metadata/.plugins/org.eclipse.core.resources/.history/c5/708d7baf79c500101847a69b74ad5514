@@ -1,0 +1,10 @@
+package RELACIONString4;
+
+public class palabra_escondida {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

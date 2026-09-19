@@ -1,0 +1,13 @@
+
+public class Carta {
+
+	//Atributos
+	int numero;
+	String palo;
+	
+	// Metodos
+	void mostrarcarta() {
+		System.out.println(numero+"-"+palo);
+	}
+	
+}

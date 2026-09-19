@@ -1,0 +1,33 @@
+package testRectangulo;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class RectanguloTest {
+ 
+	Rectangulo rect ;
+	
+	
+	@Before
+	public void antes() {
+		 rect = new Rectangulo();
+		 rect.setAncho(2);
+		 rect.setLonguitud(1);
+	}
+	@Test 
+public void testArea() {
+	 
+	 assertEquals(4 , rect.area() );
+ }
+ 
+ @Test
+ public void testPerimetro() {
+	 
+	 assertEquals(8 , rect.perimetro() );
+ }
+
+ 
+}

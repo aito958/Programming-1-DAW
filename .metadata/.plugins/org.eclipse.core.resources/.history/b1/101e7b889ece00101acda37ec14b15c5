@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class Voleyball {
+
+    private static Scanner teclado = new Scanner(System.in);
+
+    private static final int PUNTOS_GANAR = 21;
+    private static final int MATCH_POINT = 2;
+
+    public static void main(String[] args) {
+
+        int MARCADOR_EQUIPO_A = 0;
+        int MARCADOR_EQUIPO_B = 0;
+
+        do {
+            System.out.println("Introduzca el equipo que ha marcado (A/B):");
+            String puntos = teclado.nextLine().toUpperCase();
+
+            if ((MARCADOR_EQUIPO_A == PUNTOS_GANAR - 2 && MARCADOR_EQUIPO_A >= MARCADOR_EQUIPO_B + MATCH_POINT - 2) ||
+                (MARCADOR_EQUIPO_B == PUNTOS_GANAR - 2 && MARCADOR_EQUIPO_B >= MARCADOR_EQUIPO_A + MATCH_POINT - 2)) {
+               
+            	System.out.println(" ¡MATCH POINT! ");
+            	
+            	if(MARCADOR_EQUIPO_A > MARCADOR_EQUIPO_B) {
+            		System.out.println("El match point se lo lleva el equipo A");
+            	}else if(MARCADOR_EQUIPO_A < MARCADOR_EQUIPO_B) {
+            	System.out.println("El match point se lo lleva el equipo B");
+            	}	
+            	System.out.println(" ¡MATCH POINT! ");
+            }
+
+            if (puntos.equals("A")) {
+               
+            	MARCADOR_EQUIPO_A++;
+            } else if (puntos.equals("B")) {
+               
+            	MARCADOR_EQUIPO_B++;
+            }
+
+            System.out.println("Marcador: A-" + MARCADOR_EQUIPO_A + " B-" + MARCADOR_EQUIPO_B);
+
+        } while (!((MARCADOR_EQUIPO_A >= PUNTOS_GANAR && MARCADOR_EQUIPO_A >= MARCADOR_EQUIPO_B + MATCH_POINT) ||
+                   (MARCADOR_EQUIPO_B >= PUNTOS_GANAR && MARCADOR_EQUIPO_B >= MARCADOR_EQUIPO_A + MATCH_POINT)));
+
+        System.out.println("¡El partido concluye! Final: Equipo_A-" + MARCADOR_EQUIPO_A + " Equipo_B-" + MARCADOR_EQUIPO_B);
+        
+        if (MARCADOR_EQUIPO_A > MARCADOR_EQUIPO_B) {
+            System.out.println("El equipo A es el GANADOR!");
+     
+        } else {
+            
+        	System.out.println("El equipo B es el GANADOR!");
+    }
+    }
+}

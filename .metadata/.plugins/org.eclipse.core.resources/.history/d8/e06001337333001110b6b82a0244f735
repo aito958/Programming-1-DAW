@@ -1,0 +1,100 @@
+package juego;
+
+import bloque.Bloque;
+
+public class Jugador {
+	
+	String nombre;
+	// Coordenadas del jugador
+	int x, y, z;
+	
+	int[] materiasPrimas = new int[Bloque.NUM_MATERIAS];
+	
+	int usosHacha;
+	int usosPala;
+	int usosPico;
+
+	public Jugador(String nombre) {
+		this.nombre = nombre;
+		// Inicializamos a mano
+		this.usosHacha = 5;
+		this.usosPala = 5;
+		this.usosPico = 5;
+	}
+
+	public void setPosicion(int x, int y, int z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public void sumaMateria(int tipo) {
+		// Un simple if para no pasarnos del array
+		if (tipo >= 0 && tipo < 6) { 
+			materiasPrimas[tipo] = materiasPrimas[tipo] + 1;
+		} else {
+			System.out.println("Error,  ese material no existe");
+		}
+	}
+
+	
+	 //Comprobación manual de victoria (estilo muy chapuza)
+	 
+	public boolean haGanado() {
+		// Comprobamos uno por uno 
+		if (materiasPrimas[0] >= 7 && materiasPrimas[1] >= 7 && materiasPrimas[2] >= 7 &&  
+				materiasPrimas[3] >= 7 && materiasPrimas[4] >= 7 && materiasPrimas[5] >= 7) {
+			return true;
+		}
+		return false;
+	}
+
+	
+	 // Fabricar herramientas 
+	 
+	public void fabricarHerramientas() {
+		int inventario = 0; // Para saber si hemos creado algo
+
+		// Hacha
+		if (materiasPrimas[Bloque.HIERRO] >= 1 && materiasPrimas[Bloque.ARBOL] >= 1) {
+			materiasPrimas[Bloque.HIERRO] = materiasPrimas[Bloque.HIERRO] - 1;
+			materiasPrimas[Bloque.ARBOL] = materiasPrimas[Bloque.ARBOL] - 1;
+			usosHacha = 5;
+			System.out.println("Hacha nueva creada");
+			inventario = 1;
+		}
+		
+		// Pala
+		if (materiasPrimas[Bloque.HIERRO] >= 2 && materiasPrimas[Bloque.ARBOL] >= 2) {
+			materiasPrimas[Bloque.HIERRO] = materiasPrimas[Bloque.HIERRO] - 2;
+			materiasPrimas[Bloque.ARBOL] = materiasPrimas[Bloque.ARBOL] - 2;
+			usosPala = 5;
+			System.out.println("Pala nueva creada");
+			inventario = 1;
+		}
+
+		// Pico
+		if (materiasPrimas[Bloque.HIERRO] >= 1 && materiasPrimas[Bloque.COBRE] >= 1 && materiasPrimas[Bloque.ARBOL] >= 2) {
+			materiasPrimas[Bloque.HIERRO] = materiasPrimas[Bloque.HIERRO] - 1;
+			materiasPrimas[Bloque.COBRE] = materiasPrimas[Bloque.COBRE] - 1;
+			materiasPrimas[Bloque.ARBOL] = materiasPrimas[Bloque.ARBOL] - 2;
+			usosPico = 5;
+			System.out.println("Pico nuevo creado");
+			inventario = 1;
+		}
+
+		if (inventario == 0) {
+			System.out.println("No tienes materiales suficientes...");
+		}
+	}
+
+	@Override
+	public String toString() {
+		String resultado = " ";
+		resultado += "JUGADOR: " + this.nombre + " ";
+		resultado += "POSICIÓN: X=" + x + " Y=" + y + " Z=" + z + " ";
+		resultado += "USOS -> Hacha: " + usosHacha + ", Pala: " + usosPala + ", Pico: " + usosPico + "\n";
+		resultado += "MATERIALES: Planta(" + materiasPrimas[Bloque.PLANTA] + "), Arbol(" + materiasPrimas[Bloque.ARBOL] + "), Arcilla(" + materiasPrimas[Bloque.ARCILLA] + "), Albero(" + materiasPrimas[Bloque.ALBERO] + "), Hierro(" + materiasPrimas[Bloque.HIERRO] + "), Cobre(" + materiasPrimas[Bloque.COBRE] + ")";
+		return resultado;
+	}
+}

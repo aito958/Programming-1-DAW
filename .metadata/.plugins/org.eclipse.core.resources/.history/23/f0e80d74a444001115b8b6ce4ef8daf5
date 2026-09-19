@@ -1,0 +1,48 @@
+import java.util.HashMap;
+
+public class NetFlox {
+
+	// Hashmap donde por cada tema, podemos acceder a las películas de ese tema
+	private HashMap<String, PeliculasDeUnTema> mapPeliculas;
+
+	public NetFlox() {
+		mapPeliculas = new HashMap<String, PeliculasDeUnTema>();
+
+	}
+
+	public void annadirTema(String tema) throws NetFloxException {
+
+		tema = tema.toUpperCase();
+		if (mapPeliculas.containsKey(tema)) {
+			throw new NetFloxException("Ya existe ese tema");
+		}
+
+		mapPeliculas.put(tema, new PeliculasDeUnTema(tema));
+	}
+
+	public void annadirPelicula(String tema, Pelicula pelicula) throws NetFloxException {
+		PeliculasDeUnTema listaPeliculasDeUnTema = mapPeliculas.get(tema);
+
+		if (listaPeliculasDeUnTema == null) {
+			throw new NetFloxException("No existe el tema " + tema);
+		}
+		listaPeliculasDeUnTema.annadirPelicula(pelicula);
+	}
+
+	public void listadoDeTodasPeliculasDeTodosLosTemas() {
+
+		for (PeliculasDeUnTema listaPelisTema : mapPeliculas.values()) {
+			System.out.println(listaPelisTema);
+		}
+	}
+
+	public void borrarPeliculaDeUnTema(String tema, String titulo) throws NetFloxException {
+
+	}
+
+	public String temaDePelicula(String titulo) throws NetFloxException {
+
+		return null;
+	}
+
+}

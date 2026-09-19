@@ -1,0 +1,17 @@
+package relacion11.MaterialEjercicio03;
+
+public class Historial {
+	
+	String Url;
+	String fecha;
+	String hora;
+	String localDate;
+	
+	
+	
+	public void annadirNuevaVisitaPaginaWeb(VisitaPaginaWeb visita) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

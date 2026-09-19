@@ -1,0 +1,16 @@
+public static void mostrarResultados(Jugador[] j, int[] victorias, int[] derrotas) {
+
+    System.out.println("RESULTADOS FINALES:");
+
+    int totalPartidas = victorias[0] + victorias[1] + victorias[2];
+
+    for (int i = 0; i < j.length; i++) {
+
+        double porcentaje = (victorias[i] * 100.0) / totalPartidas;
+
+        System.out.println(j[i].getNombre() +
+                " -> Victorias: " + victorias[i] +
+                " | Derrotas: " + derrotas[i] +
+                " | Porcentaje: " + String.format("%.2f", porcentaje) + "%");
+    }
+}

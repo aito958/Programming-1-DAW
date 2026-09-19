@@ -1,0 +1,11 @@
+
+public class garaje {
+
+	public static void main(String[] args) {
+
+	Coche miCoche = new Coche ("tesla", "Model 3", "Blanco", "1234ABC", 0);
+	
+	System.out.println(miCoche);
+	}
+
+}

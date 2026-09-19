@@ -1,0 +1,38 @@
+public class Flecha {
+    private int flechaIncial = 1;  // ✅ OK
+    private static final int FLECHAS_MAX = 1000;  // ✅ const final
+    
+    public Flecha(int inicial) {
+        if (inicial < 1)
+            throw new IllegalArgumentException("Mínimo 1 flecha");
+        this.flechaIncial = inicial;
+    }
+    
+    public void sumar(int valor) {
+        flechaIncial = Math.min(flechaIncial + valor, FLECHAS_MAX);
+    }
+    
+    public void restar(int valor) throws FlechasInsuficientesException {
+        if (flechaIncial < valor)  
+            throw new FlechasInsuficientesException("¡Flechas insuficientes!");
+        flechaIncial = Math.max(0, flechaIncial - valor); 
+    }
+    
+    public void multiplicar(int valor) {
+        if (valor <= 0 || valor > 10)  
+            throw new IllegalArgumentException("Multiplicador 1-10");
+        flechaIncial = Math.min(flechaIncial * valor, FLECHAS_MAX);
+    }
+    
+    public void dividir(int valor) throws FlechasInsuficientesException {  
+        if (valor <= 0) 
+            throw new IllegalArgumentException("Divisor > 0");
+        if (flechaIncial < valor)
+            throw new FlechasInsuficientesException("¡No divides!");
+        flechaIncial /= valor;  
+    }
+    
+    public int getCantidad() { 
+    	return flechaIncial; 
+    	}  
+}

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="workingset_selection_history">
+		<item value="chuleta"/>
+	</list>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+		<section name="NewWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="128"/>
+			<item key="DIALOG_Y_ORIGIN" value="109"/>
+			<item key="DIALOG_WIDTH" value="525"/>
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<section name="ImportExportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="525"/>
+			<item key="DIALOG_HEIGHT" value="550"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Aitor\Desktop\SanchezAitorPractica12.zip"/>
+			<item value="C:\Users\Aitor\Desktop\SanchezAitorPractica11.zip"/>
+			<item value="C:\Users\Aitor\Desktop\EntornoDeDesarrolllo.zip"/>
+			<item value="C:\Users\Aitor\Desktop\SanchezAitorPractica9.zip"/>
+			<item value="C:\Users\Aitor\Desktop\SanchezAitorPractica8.zip"/>
+			<item value="C:\Users\Aitor\Desktop\Entorno.zip"/>
+			<item value="C:\Users\Aitor\Desktop\Clave caja fuerte.zip"/>
+			<item value="C:\Users\Aitor\Desktop\JUnit_Avanzado.zip"/>
+			<item value="C:\Users\Aitor\Desktop\ExamenPOO.zip"/>
+			<item value="C:\Users\Aitor\Desktop\Trabajo2Entorno.zip"/>
+			<item value="C:\Users\Aitor\Desktop\examen_practica5.zip"/>
+			<item value="C:\Users\Aitor\Desktop\exam.zip"/>
+			<item value="C:\Users\Aitor\Desktop\examen.zip"/>
+		</list>
+		<section name="ZipFileExportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="622"/>
+			<item key="DIALOG_HEIGHT" value="621"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="WorkbenchPreferenceDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="103"/>
+		<item key="DIALOG_Y_ORIGIN" value="-56"/>
+		<item key="DIALOG_WIDTH" value="927"/>
+		<item key="DIALOG_HEIGHT" value="816"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="ZipFileImportWizard">
+		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Aitor\Downloads\ProyectoConstruccionIncompleto.zip"/>
+			<item value="C:\Users\Aitor\Desktop\Tema03.Eje03 Codigo.zip"/>
+			<item value="C:\Users\Aitor\Desktop\Tema03.Eje03 (2).zip"/>
+			<item value="C:\Users\Aitor\Downloads\Tema03.Eje03.zip"/>
+			<item value="C:\Users\Aitor\Downloads\ENDES-main.zip"/>
+		</list>
+		<section name="ZipFileImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="622"/>
+			<item key="DIALOG_HEIGHT" value="615"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="450"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="540"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+			<item value="/LordRings/src/temporizador/Temporizador.java"/>
+			<item value="/Tema 7/src/Ejemplos/Carta.java"/>
+			<item value="EjemploArray/run"/>
+			<item value="EjemplosArrays/debug"/>
+			<item value="EjemploArray/debug"/>
+			<item value="/Tema4/src/tareaGeometria/circulo.java"/>
+			<item value="/Tema 5/src/ejemplos/Conecta4.java"/>
+			<item value="org.eclipse.jdt.ui.JavadocView"/>
+			<item value="/Tema4/src/cafe/Maquina.java"/>
+			<item value="/TEMA 3/src/RELACIONString4/Casino.java"/>
+			<item value="/TEMA 3/src/RELACIONString4/Stwich.java"/>
+			<item value="/examen_0.1/src/casaPapel.java"/>
+			<item value="/SanchezAitorEjercico4/src/Validaciones.java"/>
+			<item value="/Tema4/src/Coche.java"/>
+			<item value="/Tema4/src/POO_II/Linea.java"/>
+			<item value="org.eclipse.ui.views.ContentOutline"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.quickaccess.RunQuickAccessComputer"/>
+			<item value="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.quickaccess.DebugQuickAccessComputer"/>
+			<item value="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.quickaccess.DebugQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="tempo"/>
+			<item value="carta"/>
+			<item value="arra"/>
+			<item value="arrays"/>
+			<item value="arr"/>
+			<item value="cir"/>
+			<item value="cone"/>
+			<item value="javad"/>
+			<item value="maquina"/>
+			<item value="casi"/>
+			<item value="st"/>
+			<item value="casa"/>
+			<item value="vali"/>
+			<item value="coche"/>
+			<item value="linea"/>
+			<item value="o"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Aitor\Downloads\Relación 13-v2\Material relacion 13"/>
+			<item value="C:\Users\Aitor\Downloads\Relación 13-v2"/>
+			<item value="C:\Users\Aitor\Desktop\Materiales Relación 11"/>
+			<item value="C:\Users\Aitor\Desktop\Relación 11"/>
+			<item value="C:\Users\Aitor\Desktop\Practica 08 - MineCraft\Practica 08 (MineCraft)"/>
+			<item value="C:\Users\Aitor\Desktop\Tema04.Eje03"/>
+		</list>
+		<section name="FileSystemImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="622"/>
+			<item key="DIALOG_HEIGHT" value="615"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="PreferencesImportWizard">
+		<section name="PreferencesImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="513"/>
+			<item key="DIALOG_Y_ORIGIN" value="79"/>
+			<item key="DIALOG_WIDTH" value="525"/>
+			<item key="DIALOG_HEIGHT" value="553"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+</section>

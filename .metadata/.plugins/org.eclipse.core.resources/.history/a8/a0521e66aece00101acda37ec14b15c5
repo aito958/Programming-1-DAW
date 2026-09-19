@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+public class voleyhardcore {
+
+	private static final int PUNTOS_GANAR = 21;
+	private static final int MATCH_POINT = 2;
+	private static final int SETS_GANAR = 3;
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int puntos_equipoA = 0;
+		int puntos_equipoB = 0;
+
+		
+
+		do {
+
+			System.out.println("Introduce cual equipo ha marcado puntos");
+			String puntos = teclado.nextLine().toUpperCase();
+
+			if ((puntos_equipoA == PUNTOS_GANAR - 2 && puntos_equipoA >= puntos_equipoB + MATCH_POINT - 2) || (puntos_equipoB == PUNTOS_GANAR - 2 && puntos_equipoB >= puntos_equipoA + MATCH_POINT - 2)) {
+				System.out.println("!MATCH POINT!");
+
+				if (puntos_equipoA >= puntos_equipoB) {
+					System.out.println("Match point para el equipo A");
+				} else {
+					System.out.println("Match point para el equipo B");
+				}
+			}
+
+			if (puntos.equals("A")) {
+				puntos_equipoA++;
+
+			} else if (puntos.equals("B")) {
+				puntos_equipoB++;
+			}
+
+			System.out.println("Marcador A-" + puntos_equipoA + " Marcador B-" + puntos_equipoB);
+
+		} while (!((puntos_equipoA >= PUNTOS_GANAR && puntos_equipoA >= puntos_equipoB + MATCH_POINT) || (puntos_equipoB >= PUNTOS_GANAR && puntos_equipoB >= puntos_equipoA + MATCH_POINT)));
+
+		System.out.println("El partido cocluye con el marcador :A-" + puntos_equipoA + " B-" + puntos_equipoB);
+
+		if (puntos_equipoA > puntos_equipoB) {
+			System.out.println("El equpo A ha ganado el partido");
+		} else {
+			System.out.println("El equipo B ha ganado el partido");
+
+			sets(puntos_equipoA, puntos_equipoB);
+		
+		
+		}
+	
+	}
+	
+	public static void sets(int puntos_equipoA, int puntos_equipoB) { 
+	    int setsA = 0; 
+	    int setsB = 0;
+
+	    while(setsA < 2 && setsB < 2) {     
+	        int puntosA = 0;
+	        int puntosB = 0;  
+	        
+
+	        do {
+	            System.out.println("Set " + (setsA + setsB + 1) + " - Introduce A/B:");
+	            String entrada = teclado.nextLine().toUpperCase();
+
+	            if ((puntosA == PUNTOS_GANAR - 2 && puntosA >= puntosB + MATCH_POINT - 2) ||  (puntosB == PUNTOS_GANAR - 2 && puntosB >= puntosA + MATCH_POINT - 2)) {
+	                System.out.println("!MATCH POINT!");
+	                if (puntosA >= puntosB) {
+	                    System.out.println("Match point para el equipo A");
+	                } else {
+	                    System.out.println("Match point para el equipo B");
+	                }
+	            }
+
+	            if(entrada.equals("A")){
+	                puntosA++;
+	            } else if(entrada.equals("B")){
+	                puntosB++;
+	            }
+
+	            System.out.println("Marcador Set: A-" + puntosA + " B-" + puntosB);
+
+	        } while (!((puntosA >= PUNTOS_GANAR && puntosA >= puntosB + MATCH_POINT) || 
+	                   (puntosB >= PUNTOS_GANAR && puntosB >= puntosA + MATCH_POINT)));
+	        
+	        if(puntosA > puntosB) {
+	            setsA++;
+	            System.out.println(" Set " + setsA + ": A gana " + puntosA + "-" + puntosB);
+	        } else {
+	            setsB++;
+	            System.out.println(" Set " + setsB + ": B gana " + puntosA + "-" + puntosB);
+	        }
+	    }
+	    
+	    System.out.println(" PARTIDO FINAL: A-" + setsA + " B-" + setsB);
+	}
+}

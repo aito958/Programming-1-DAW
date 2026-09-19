@@ -1,0 +1,16 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class EjemploMapa {
+
+	public static void main(String[] args) {
+
+		Map<String, Persona> equipo = new HashMap<String,Persona>();
+		
+		Persona p1 = new Persona(123, "Fernando Alonso");
+		Persona p2 = new Persona(234, "Carlos Sainz");
+
+		equipo.put(p1.DNI, p1);
+	}
+
+}

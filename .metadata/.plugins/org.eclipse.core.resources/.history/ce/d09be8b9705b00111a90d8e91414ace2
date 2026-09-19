@@ -1,0 +1,83 @@
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Temporizator2000GUI {
+
+	static JLabel etiquetaNombreJuagador;
+	static JTextField TextFieldNombreJuagador;
+	static JButton botonIniciarPartida;
+	static JButton botonConsultarRecords;
+	static JButton botonVolver;
+	static JButton botonSalir;
+	static JButton botonEmpezarPartida;
+
+
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setSize(500, 500);
+
+		JPanel panel = new JPanel();
+
+		botonIniciarPartida = new JButton("Iniciar partida");
+		botonIniciarPartida.addActionListener(e -> {
+
+			etiquetaNombreJuagador.setVisible(true);
+			TextFieldNombreJuagador.setVisible(true);
+			botonEmpezarPartida.setVisible(true);
+			botonVolver.setVisible(true);
+			botonConsultarRecords.setVisible(false);
+			botonIniciarPartida.setVisible(false);
+		});
+
+		panel.add(botonIniciarPartida);
+
+		botonConsultarRecords = new JButton("Consultar records");
+		panel.add(botonConsultarRecords);
+
+		botonSalir = new JButton(" Salir");
+		botonSalir.addActionListener(e -> System.exit(0));
+		panel.add(botonSalir);
+
+		etiquetaNombreJuagador = new JLabel("¿Cuál es tu nombre?");
+		etiquetaNombreJuagador.setVisible(false);
+		panel.add(etiquetaNombreJuagador);
+
+		TextFieldNombreJuagador = new JTextField(20);
+		TextFieldNombreJuagador.setVisible(false);
+		panel.add(TextFieldNombreJuagador);
+
+		botonVolver = new JButton(" Volver al menú principal");
+		botonVolver.addActionListener(e -> {
+			etiquetaNombreJuagador.setVisible(false);
+			TextFieldNombreJuagador.setVisible(false);
+			botonVolver.setVisible(false);
+			botonEmpezarPartida.setVisible(false);
+
+			botonConsultarRecords.setVisible(true);
+			botonIniciarPartida.setVisible(true);
+		});	
+		panel.add(botonVolver);
+		botonVolver.setVisible(false);
+		
+			botonEmpezarPartida = new JButton(" Empezar partida");
+			botonEmpezarPartida.addActionListener(e -> {
+				Random random = new Random();
+				
+				
+			});
+		
+		panel.add(botonEmpezarPartida);
+		botonEmpezarPartida.setVisible(false);
+		
+		ventana.add(panel);
+		ventana.setVisible(true);
+
+	}
+
+}

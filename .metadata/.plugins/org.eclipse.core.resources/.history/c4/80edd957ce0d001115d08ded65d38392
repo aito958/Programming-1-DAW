@@ -1,0 +1,25 @@
+package RELACION08_ARRAYS;
+
+public class EjemploOrdenacionBurbuja {
+
+	public static void main(String[] args) {
+
+		int[] numeros = { 3, 4, 10, 5, 1, 2 };
+		int i;
+		// TODO ordenar el array
+		// Debe haber 2 bucles, uno dentro de otro
+
+		for (i = 0; i < numeros.length; i++) {
+			for (int j = 0; j <= (numeros.length - i) - 1; j++) {
+			int min = j;
+				int numeroActual = numeros[i];
+
+				if (numeroActual < min) {
+					min = numeroActual;
+				}
+
+			}
+		}
+		System.out.print(numeros[i]);
+	}
+}

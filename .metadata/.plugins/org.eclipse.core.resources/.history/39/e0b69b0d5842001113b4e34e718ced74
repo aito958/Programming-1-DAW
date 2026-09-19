@@ -1,0 +1,136 @@
+package relacion11.MaterialEjercicio04;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public abstract class Persona {
+
+	private static final int EDAD_MINIMA = 12;
+
+	// Atributos
+	private String dni;
+	private String nombre;
+	private int edad;
+
+	List<Mensaje> buzon;
+
+	// aqui tengo que tener la lista de mensajes de esta persona ,de this
+
+	// metodo para recibir y enviar mensajes
+
+	// metodo para leer los mensajes ordenados segun remitente alfabeticamente
+
+	// metodo para borrar mensaje del buzon
+
+	// metodo para busquesda
+
+	// Constructor
+	public Persona(String dni, String nombre, int edad) throws IESException {
+		this.dni = dni;
+		this.nombre = nombre;
+		buzon = new ArrayList<Mensaje>();
+		setEdad(edad);
+	}
+
+	// Métodos get y set
+	public int getEdad() {
+		return edad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	private void setEdad(int edad) throws IESException {
+		if (edad < EDAD_MINIMA)
+			throw new IESException("La edad minima es de" + EDAD_MINIMA);
+		this.edad = edad;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [dni=" + dni + ", nombre=" + nombre + ", edad=" + edad + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		if (dni == null) {
+			if (other.dni != null)
+				return false;
+		} else if (!dni.equals(other.dni))
+			return false;
+		return true;
+	}
+
+	public boolean recibirMensaje(Persona remitente, String texto) {
+		Mensaje msg = new Mensaje(remitente, texto);
+		return this.buzon.add(msg);
+
+	}
+
+	public String leerMensaje() {
+		int contador = 1;
+		StringBuilder str = new StringBuilder();
+		
+		for (Mensaje msg : buzon) {
+			str.append("Mensaje " + contador + ": " + msg.toString());
+		contador++;
+		}
+		return str.toString();
+	}
+
+public String leerMensajeOrdenado() {
+		
+		Collections.sort(buzon,(a,b ) ->{return a.remitente.getNombre().compareToIgnoreCase(b.remitente.getNombre());});
+	return leerMensaje();
+
+}
+
+	public boolean borrarMensaje(int i ) throws IESException{
+		if( buzon.remove(i) != null)
+			return true;
+		else
+
+			throw new IESException("No se pudo borrar el mensaje " + i + ", no existe");
+	}
+
+	public List<Mensaje> buscarMensajes(String texto) {
+		List<Mensaje> mensajesEncontrados = new ArrayList<>();
+		
+		for (Mensaje msg : buzon) {
+			if (msg.texto.contains(texto)) {
+				mensajesEncontrados.add(msg);
+			}
+		}
+		
+		return mensajesEncontrados;
+	}
+
+	
+	
+}
+

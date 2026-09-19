@@ -1,0 +1,117 @@
+import java.util.Scanner;
+
+public class voleyPlaya {
+
+	private static final int PUNTOS_GANAR = 21;
+	private static final int MATCH_POINT = 2;
+	private static final int SETDECISIVO = 15;
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		System.out.println("el primer equipo");
+		
+	
+		
+		int Equipo1 = 0;
+		int Equipo2 = 0;
+
+		do {
+
+			System.out.println("¿Quien ha ganado el saque?");
+			String puntos = teclado.nextLine();
+
+			if ((Equipo1 == PUNTOS_GANAR - 2 && Equipo1 >= Equipo2 + MATCH_POINT - 2)
+					|| (Equipo2 == PUNTOS_GANAR - 2 && Equipo2 >= Equipo1 + MATCH_POINT - 2)) {
+				System.out.println("!MATCH POINT!");
+
+				if (Equipo1 >= Equipo2) {
+					System.out.println("Match point para Brasil");
+				} else {
+					System.out.println("Match point para España");
+				}
+			}
+
+			if (puntos.equals("Brasil")) {
+				Equipo1++;
+
+			} else if (puntos.equals("España")) {
+				Equipo2++;
+			}
+
+			System.out.println("Brasil-" + Equipo1 + " España-" + Equipo2);
+
+		} while (!((Equipo1 >= PUNTOS_GANAR && Equipo1 >= Equipo2 + MATCH_POINT)
+				|| (Equipo2 >= PUNTOS_GANAR && Equipo2 >= Equipo1 + MATCH_POINT)));
+
+		System.out.println("El partido cocluye con el marcador :Brasil-" + Equipo1 + " España-" + Equipo2);
+
+		sets(Equipo1, Equipo2);
+
+		if (Equipo1 > Equipo2) {
+			System.out.println("Enhorabuena el ganador es Brasil!!!!! ");
+		} else {
+			System.out.println("Enhorabuena el ganador es España !!!!!");
+
+		}
+	}
+
+	public static void sets(int puntos_equipoA, int puntos_equipoB) {
+		int setsA = 0;
+		int setsB = 0;
+
+		while (setsA < 2 && setsB < 2) {
+
+			int Brasil = 0;
+			int España = 0;
+
+			do {
+				System.out.println("Set " + (setsA + setsB +1) + "¿Quien ha ganado el saque?\" ");
+				String set = teclado.next();
+
+				if ((Brasil == PUNTOS_GANAR - 2 && Brasil >= España + MATCH_POINT - 2)
+						|| (España == PUNTOS_GANAR - 2 && España >= Brasil + MATCH_POINT - 2)) {
+
+					System.out.println("!MATCH POINT!");
+					if (Brasil >= España) {
+						System.out.println("Match point para Brasil");
+					} else {
+						System.out.println("Match point para España");
+					}
+				}
+
+				if (set.equals("Brasil")) {
+					Brasil++;
+				} else if (set.equals("España")) {
+					España++;
+				}
+
+				System.out.println("Marcador Set: Brasil-" + Brasil + " España-" + España);
+
+			} while (!((Brasil >= PUNTOS_GANAR && Brasil >= España + MATCH_POINT)
+					|| (España >= PUNTOS_GANAR && España >= Brasil + MATCH_POINT)));
+
+			if (Brasil > España) {
+				setsA++;
+				System.out.println(" Set " + setsA + ": A gana " + Brasil + "-" + España + setsA);
+			} else {
+				setsB++;
+				System.out.println(" Set " + setsB + ": B gana " + Brasil + "-" + España+ setsB);
+			}
+		}
+
+		int Brasil = 0;
+		int España = 0;
+		do {
+			if (setsA == 1 && setsB == 1){
+			System.out.println("El set decisivo");
+			}
+			} while (!((Brasil >= SETDECISIVO && Brasil >= España + MATCH_POINT) 
+			        ||(España >= SETDECISIVO && España >= Brasil + MATCH_POINT)));
+				
+
+		
+		System.out.println(" PARTIDO FINAL: Brasil-" + setsA + " España-" + setsB);
+	}
+}

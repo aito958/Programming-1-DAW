@@ -1,0 +1,20 @@
+
+public class Carta {
+
+	//Atributos
+	int numero;
+	String palo;
+	
+	//	Constructructor
+	public Carta (int num, String p) {
+		numero = num;
+		palo = p;
+	}
+	public 
+	
+	// Metodos
+	void mostrarcarta() {
+		System.out.println(numero+"-"+palo);
+	}
+	
+}

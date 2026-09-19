@@ -1,0 +1,35 @@
+package POO_II;
+
+public class MainCualquiera {
+
+	public static void main(String[] args) throws EnteroNegativoException  {
+		
+		int edad = MiEntradaSalida.solicitarEntero("Introduce tu edad: ");
+
+		if (edad >= 18) {
+			System.out.println("Entra");
+		} else {
+			System.out.println("Para tu casa");
+		}
+
+		int positivo = MiEntradaSalida.solicitarEnteroPositivo("Introduce un numero entero: ");
+		if (positivo > 0) {
+			System.out.println("Bien");
+		} else {
+			System.out.println("Mal");
+		}
+		int rango = MiEntradaSalida.solicitarEnteroEnRango("3. Número 1-10: ", 1, 10);
+		System.out.println(" Rango: " + rango);
+
+		char caracter = MiEntradaSalida.solicitarCaracter("4. Carácter: ");
+		System.out.println(" Carácter: " + caracter);
+
+		char siNo = MiEntradaSalida.solicitarCaracterSN("5. ¿Continuar? ");
+		System.out.println(" S/N: " + siNo);
+
+		String cadena = MiEntradaSalida.solicitarCadena("6. Texto: ");
+		System.out.println(" Cadena: '" + cadena);
+
+		System.out.println("TODAS LAS PRUEBAS COMPLETADAS CORRECTAMENTE!");
+	}
+}

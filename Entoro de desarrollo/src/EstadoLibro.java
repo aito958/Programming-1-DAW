@@ -1,0 +1,4 @@
+
+public enum EstadoLibro {
+    EN_BIBLIOTECA, PRESTADO,  CON_RETRASO,  EN_REPARACION
+}

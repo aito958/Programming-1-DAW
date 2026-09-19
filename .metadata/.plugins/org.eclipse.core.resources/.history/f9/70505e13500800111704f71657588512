@@ -1,0 +1,87 @@
+package POO_II;
+
+public class Producto {
+
+	String id;
+	double IVA;
+	String categoria;
+	double precioSinIva;
+	String descripcion;
+	
+	static int ultimoId = 0;
+
+	
+	public void Productos(String id, double IVA, String categorias, double precioSinIva , String descripcion) {
+		this.categoria = categorias;
+		this.precioSinIva = precioSinIva;
+		this.IVA = IVA;
+		this.descripcion  = descripcion;
+		this.id = String.valueOf(ultimoId);
+		Producto.ultimoId ++;
+	
+	
+	
+	
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public double getIVA() {
+		return IVA;
+	}
+
+
+	public void setIVA(double iVA) {
+		IVA = iVA;
+	}
+
+
+	public String getCategorias() {
+		return categorias;
+	}
+
+
+	public void setCategorias(String categorias) {
+		this.categorias = categorias;
+	}
+
+
+	public double getPrecioSinIva() {
+		return precioSinIva;
+	}
+
+
+	public void setPrecioSinIva(double precioSinIva) {
+		this.precioSinIva = precioSinIva;
+	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+	public static int getUltimoId() {
+		return ultimoId;
+	}
+
+
+	public static void setUltimoId(int ultimoId) {
+		Producto.ultimoId = ultimoId;
+	}
+	
+}

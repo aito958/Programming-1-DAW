@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="LAST_PATH_SETTING" value="C:\Users\Aitor\Desktop"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="72"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="604"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="80"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=tema 2/src&amp;lt;{basura.java[basura~main~\[QString;[Solution&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Library/C:\/Users\/Aitor\/Desktop\/Tema05.Eje01\/Library\/Library&amp;lt;bin(AdminLogin.class[AdminLogin&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Ejemplos{EjemEscrituraArchivo.java[EjemEscrituraArchivo&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Ejemplos{LocalizarFicheros.java[LocalizarFicheros&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Parte2_Fichero{EjemPattern.java[EjemPattern&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Ejemplos{Ejemplo1.java[Ejemplo1&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Ejemplos{EscribirObjetosbinarios.java[EscribirObjetosbinarios&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Ejemplos{EjercicoClase.java[EjercicoClase&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Tema 7/src&amp;lt;Parte2_Fichero{Ejemplos.java[Ejemplos&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=SanchezAitorEjercico4/C:\/Users\/Aitor\/.p2\/pool\/plugins\/org.junit_4.13.2.v20240929-1000.jar=/javadoc_location=/http:\/\/junit.org\/junit4\/javadoc\/latest\/=/&amp;lt;org.junit.runner(JUnitCore.class[JUnitCore&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Exam/src&amp;lt;exam10{PiedraPapelTijeras.java[PiedraPapelTijeras&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="271"/>
+			<item key="DIALOG_Y_ORIGIN" value="100"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="expressionHistory">
+	</section>
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item key="WIDTH" value="612"/>
+		<item key="HEIGHT" value="204"/>
+		<item key="SashWeightTree" value="500"/>
+		<item key="SashWeightDetails" value="500"/>
+	</section>
+</section>

@@ -1,0 +1,20 @@
+public class Partida {
+
+    public static int enfrentar(Jugador j1, Jugador j2) {
+
+        String a = j1.jugar();
+        String b = j2.jugar();
+
+        if (a.equals(b)) return 0;
+
+        if ((a.equals("Piedra") && b.equals("Tijeras")) ||
+            (a.equals("Tijeras") && b.equals("Papel")) ||
+            (a.equals("Papel") && b.equals("Piedra"))) {
+            return 1; // gana j1
+        }
+
+        return 2; // gana j2
+    }
+
+	
+}

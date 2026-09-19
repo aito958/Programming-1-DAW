@@ -1,0 +1,51 @@
+package relacion11.MaterialEjercicio01;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Crear lista de personas
+        ArrayList<Persona> personas = new ArrayList<>();
+        personas.add(new Persona("Ana", "123A"));
+        personas.add(new Persona("Luis", "555B"));
+        personas.add(new Persona("Marta", "222C"));
+
+        // Lista original
+        System.out.println("LISTA ORIGINAL:");
+        for (Persona p : personas) {
+            System.out.println(p);
+        }
+
+        // Copia ordenada por nombre
+        ArrayList<Persona> ordenNombre = new ArrayList<>(personas);
+        ordenNombre.sort(Comparator.comparing(Persona::getNombre));
+
+        System.out.println("\nORDENADA POR NOMBRE:");
+        for (Persona p : ordenNombre) {
+            System.out.println(p);
+        }
+
+        // Copia ordenada por DNI
+        ArrayList<Persona> ordenDni = new ArrayList<>(personas);
+        ordenDni.sort(Comparator.comparing(Persona::getDni));
+
+        System.out.println("\nORDENADA POR DNI:");
+        for (Persona p : ordenDni) {
+            System.out.println(p);
+        }
+
+        // Lista desordenada manualmente
+        ArrayList<Persona> desordenada = new ArrayList<>();
+        desordenada.add(personas.get(2));
+        desordenada.add(personas.get(0));
+        desordenada.add(personas.get(1));
+
+        System.out.println("\nDESORDENADA MANUAL:");
+        for (Persona p : desordenada) {
+            System.out.println(p);
+        }
+    }
+}
+

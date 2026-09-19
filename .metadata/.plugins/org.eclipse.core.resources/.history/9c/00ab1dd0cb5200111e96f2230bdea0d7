@@ -1,0 +1,16 @@
+package ejercicio07;
+
+import java.io.File;
+
+public class Ejercicio07 {
+
+	public static void main(String[] args) {
+
+		File f = new File("src/ejercicio07/stock.dat");
+
+		
+		
+		
+	}
+
+}

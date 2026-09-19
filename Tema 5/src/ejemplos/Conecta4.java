@@ -1,0 +1,94 @@
+package ejemplos;
+
+import java.util.Scanner;
+
+public class Conecta4 {
+    private static Scanner teclado = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int tablero[][] = new int[6][7];
+        System.out.println("Bienvenido a la batalla del six seven");
+        int turnoJugador = 1;
+
+        do {
+            System.out.println("Jugador " + turnoJugador + " turno");
+            System.out.print("Columna (1-7): ");
+
+            // VALIDACIÓN COLUMNA
+            int columnaJugador;
+            do {
+                columnaJugador = teclado.nextInt();
+            } while (columnaJugador < 1 || columnaJugador > 7);
+
+            // JUGADA
+            jugada(turnoJugador, columnaJugador, tablero);
+
+            // MOSTRAR TABLERO
+            mostrarTablero(tablero);
+
+            // COMPROBAR GANADOR
+            if (comprobar(tablero)) {
+                System.out.println("¡Gana jugador " + turnoJugador + "!");
+                break;
+            }
+
+            // CAMBIO DE TURNO
+            turnoJugador = (turnoJugador == 1) ? 2 : 1;
+
+        } while (true);
+    }
+
+    private static void mostrarTablero(int[][] tablero) {
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[i].length; j++) {
+                System.out.print(tablero[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("---------------");
+    }
+
+    private static void jugada(int jugador, int columnaJugador, int[][] tablero) {
+        boolean fichaColocada = false;
+
+        for (int i = tablero.length - 1; i >= 0 && !fichaColocada; i--) {
+            if (tablero[i][columnaJugador - 1] == 0) {
+                tablero[i][columnaJugador - 1] = jugador;
+                fichaColocada = true;
+            }
+        }
+    }
+
+    private static boolean comprobar(int[][] tablero) {
+
+        // HORIZONTAL
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j <= tablero[i].length - 4; j++) {
+                if (tablero[i][j] != 0 &&
+                    tablero[i][j] == tablero[i][j + 1] &&
+                    tablero[i][j] == tablero[i][j + 2] &&
+                    tablero[i][j] == tablero[i][j + 3]) {
+                    return true;
+                }
+            }
+        }
+
+        // VERTICAL
+        for (int i = 0; i <= tablero.length - 4; i++) {
+            for (int j = 0; j < tablero[i].length; j++) {
+                if (tablero[i][j] != 0 &&
+                    tablero[i][j] == tablero[i + 1][j] &&
+                    tablero[i][j] == tablero[i + 2][j] &&
+                    tablero[i][j] == tablero[i + 3][j]) {
+                    return true;
+                }
+            }
+        }
+
+      
+
+      
+
+        return false;
+    }
+}

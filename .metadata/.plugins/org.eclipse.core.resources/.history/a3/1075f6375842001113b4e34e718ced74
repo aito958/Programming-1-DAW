@@ -1,0 +1,20 @@
+package relacion11.MaterialEjercicio04;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+
+		try {
+			Profesor jorge = new Profesor("12", "Jorge", 40);
+			Alumno pedro = new Alumno("34", "Pedro", 20, TipoEnsennanza.ESO, 3);
+			Alumno antonio = new Alumno("00", "Pedro", 12, TipoEnsennanza.CICLO, 2);
+
+			jorge.recibirMensaje(pedro, "Hola profe de informática");
+
+		} catch (IESException e) {
+			System.out.println(e);
+
+		}
+	}
+
+}

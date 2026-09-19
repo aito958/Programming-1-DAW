@@ -1,0 +1,19 @@
+package testRectangulo;
+
+package testRectangulo;
+
+public class Punto {
+	private int puntoA;
+	private int puntoB;
+
+
+	public  int Linea (int puntoA , int puntoB) {
+		
+		this.puntoA = puntoA; 
+		this.puntoB = puntoB;
+
+		return 0;
+		
+	}
+
+}

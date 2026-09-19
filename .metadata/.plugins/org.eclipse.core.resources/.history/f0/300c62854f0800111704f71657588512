@@ -1,0 +1,27 @@
+package POO_II;
+
+import java.util.Scanner;
+
+public class Almacen {
+	private static final Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		System.out.println("Bienvenido al almacen de awuebo");
+		System.out.println("-------------------------------------------");
+		System.out.println("Regrista el producto");
+		int producto = teclado.nextInt();
+		System.out.println("dale una descripcion");
+		
+		switch (producto) {
+		case 1:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

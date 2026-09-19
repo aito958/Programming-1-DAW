@@ -1,0 +1,21 @@
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		NetFlox netFlox = new NetFlox();
+
+		try {
+			netFlox.annadirTema("COMEDIA");
+			netFlox.annadirTema("ACCION");
+			netFlox.annadirTema("DRAMA");
+
+			netFlox.annadirPelicula("COMEDIA", new Pelicula("BAJO EL MISMO TECHO", 2019));
+
+		} catch (NetFloxException e) {
+			System.err.println(e.getMessage());
+		}
+
+	}
+
+}

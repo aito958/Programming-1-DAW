@@ -1,0 +1,100 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Baraja {
+
+	private static final char BASTOS = 'B';
+	private static final char COPAS = 'C';
+	private static final char ESPADAS = 'E';
+	private static final char OROS = 'O';
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		boolean continuar = true;
+
+		do {
+			System.out.println("--- MENÚ BARAJA ESPAÑOLA ---");
+			System.out.println("1. Mostrar un palo");
+			System.out.println("2. Mostrar baraja");
+			System.out.println("3. Mostrar carta aleatoria");
+			System.out.println("4. Salir");
+			System.out.println("Elige una opción (1-4)");
+
+			int opcion = teclado.nextInt();
+
+			switch (opcion) {
+			case 1:
+				System.out.println(
+						"Baraja española, elije el palo que quiere imprimir: (B)astos, (C)opas, (E)spadas, (O)ros");
+				char palo = teclado.next().charAt(0);
+				mostrarPalo(palo);
+				break;
+			case 2:
+				mostrarBaraja();
+				break;
+			case 3:
+				generarCartaAleatoria();
+				break;
+			case 4:
+				System.out.println("¡HASTA LUEGO!");
+				continuar = false;
+				break;
+			default:
+				System.out.println("Error, valor no valido");
+				break;
+			}
+		} while (continuar);
+
+	}
+
+	private static void generarCartaAleatoria() {
+		Random random = new Random();
+		int palo = random.nextInt(1, 5);
+		int numeroCarta = random.nextInt(1, 11);
+		char paloReal = 'X';
+
+		if (palo == 1) {
+			paloReal = BASTOS;
+		} else if (palo == 2) {
+			paloReal = COPAS;
+		} else if (palo == 3) {
+			paloReal = ESPADAS;
+		} else {
+			paloReal = OROS;
+		}
+
+		if (numeroCarta <= 7) {
+			System.out.println("Carta aleatoria -> " + numeroCarta + "-" + paloReal);
+		} else if (numeroCarta == 8) {
+			System.out.println("Carta aleatoria -> S" + "-" + paloReal);
+		} else if (numeroCarta == 8) {
+			System.out.println("Carta aleatoria -> C" + "-" + paloReal);
+		} else {
+			System.out.println("Carta aleatoria -> R" + "-" + paloReal);
+		}
+
+	}
+
+	private static void mostrarBaraja() {
+		mostrarPalo(BASTOS);
+		mostrarPalo(COPAS);
+		mostrarPalo(ESPADAS);
+		mostrarPalo(OROS);
+
+	}
+
+	private static void mostrarPalo(char palo) {
+
+		if (palo == BASTOS || palo == COPAS || palo == ESPADAS || palo == OROS) {
+			for (int i = 1; i <= 7; i++) {
+				System.out.print(i + "-" + palo + ", ");
+			}
+			System.out.println("S-" + palo + ", C-" + palo + ", R-" + palo);
+		} else {
+			System.out.println("ERROR palo no válido");
+		}
+	}
+
+}

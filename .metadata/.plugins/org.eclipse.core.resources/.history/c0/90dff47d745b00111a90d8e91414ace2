@@ -1,0 +1,125 @@
+import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Temporizator2000GUI {
+
+	private static final int LIMITE_INFERIOR_NUMERO_ALEATORIO = 5;
+	private static final int LIMITE_SUPERIOR_NUMERO_ALEATORIO = 15;
+	
+	static JLabel etiquetaNombreJuagador;
+	static JTextField TextFieldNombreJugador;
+	static JButton botonIniciarPartida;
+	static JButton botonConsultarRecords;
+	static JButton botonVolver;
+	static JButton botonSalir;
+	static JButton botonEmpezarPartida;
+	static JLabel etiquetaNumeroAleatorio;
+
+
+
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setSize(500, 500);
+
+		JPanel panel = new JPanel();
+
+		botonIniciarPartida = new JButton("Iniciar partida");
+		botonIniciarPartida.addActionListener(e -> {
+
+			etiquetaNombreJuagador.setVisible(true);
+			TextFieldNombreJugador.setVisible(true);
+			botonEmpezarPartida.setVisible(true);
+			botonVolver.setVisible(true);
+			
+			ocultarMenuPrincipal();
+		});
+
+		panel.add(botonIniciarPartida);
+
+		botonConsultarRecords = new JButton("Consultar records");
+		botonConsultarRecords.addActionListener(e -> {
+			ocultarMenuPrincipal();
+			botonEmpezarPartida.setVisible(false);
+		});
+		panel.add(botonConsultarRecords);
+
+		botonSalir = new JButton(" Salir");
+		botonSalir.addActionListener(e -> System.exit(0));
+		panel.add(botonSalir);
+
+		etiquetaNombreJuagador = new JLabel("¿Cuál es tu nombre?");
+		etiquetaNombreJuagador.setVisible(false);
+		panel.add(etiquetaNombreJuagador);
+
+		TextFieldNombreJugador = new JTextField(20);
+		TextFieldNombreJugador.setVisible(false);
+		panel.add(TextFieldNombreJugador);
+
+		botonVolver = new JButton(" Volver al menú principal");
+		botonVolver.addActionListener(e -> {
+			mostrarMenuPrincipal();
+		});	
+		panel.add(botonVolver);
+		botonVolver.setVisible(false);
+		
+		etiquetaNumeroAleatorio = new JLabel();
+		panel.add(etiquetaNumeroAleatorio);
+		etiquetaNumeroAleatorio.setVisible(false);
+		
+			botonEmpezarPartida = new JButton(" Empezar partida");
+			botonEmpezarPartida.addActionListener(e -> {
+				Random aleatorio = new Random();
+				int numeroAleatorio = aleatorio.nextInt(LIMITE_INFERIOR_NUMERO_ALEATORIO, LIMITE_SUPERIOR_NUMERO_ALEATORIO + 1);
+				etiquetaNumeroAleatorio.setText("Debes contar hasta.... " + numeroAleatorio);
+				etiquetaNumeroAleatorio.setVisible(true);
+				
+				etiquetaNombreJuagador.setVisible(false);
+				TextFieldNombreJugador.setVisible(false);
+				
+			});
+		
+		panel.add(botonEmpezarPartida);
+		botonEmpezarPartida.setVisible(false);
+		
+		ventana.add(panel);
+		ventana.setVisible(true);
+
+	}
+
+	public static void mostrarMenuPrincipal() {
+		botonConsultarRecords.setVisible(true);
+		botonIniciarPartida.setVisible(true);
+		botonSalir.setVisible(true);
+		etiquetaNombreJuagador.setVisible(false);
+		TextFieldNombreJugador.setVisible(false);
+		botonVolver.setVisible(false);
+		botonEmpezarPartida.setVisible(false);
+
+	
+	}
+	
+	public static void ocultarMenuPrincipal() {
+		etiquetaNombreJuagador.setVisible(true);
+		TextFieldNombreJugador.setVisible(true);
+		botonVolver.setVisible(true);
+		botonEmpezarPartida.setVisible(true);
+		botonSalir.setVisible(false);
+
+		botonConsultarRecords.setVisible(false);
+		botonIniciarPartida.setVisible(false);
+	
+	}
+	
+	
+	
+	
+	
+}

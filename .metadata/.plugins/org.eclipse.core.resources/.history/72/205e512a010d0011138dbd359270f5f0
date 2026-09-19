@@ -1,0 +1,32 @@
+package RELACION08_ARRAYS;
+
+import java.util.Scanner;
+
+public class Ejercicio_1 {
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	static int NUM_NUMEROS = 5;
+
+	public static void main(String[] args) {
+		int contadorPositivos = 0;
+		int sumTotal = 0;
+
+		int[] arrayNumeros = new int[NUM_NUMEROS];
+		for (int i = 0; i < arrayNumeros.length; i++) {
+			System.out.println(i + " . Introduce un numero");
+			arrayNumeros[i] = teclado.nextInt();
+
+		}
+
+		for (int i = 0; i < arrayNumeros.length - 1; i--) {
+			System.out.println(arrayNumeros[i]);
+			if (arrayNumeros[i] > 0) {
+				contadorPositivos++;
+			}
+			sumTotal = sumTotal + arrayNumeros[i];
+		}
+		System.out.println("Hay " + contadorPositivos + " numeros positivos");
+		System.out.println("La suma total es = " + sumTotal);
+	}
+}

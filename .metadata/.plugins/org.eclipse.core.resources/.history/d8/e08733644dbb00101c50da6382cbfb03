@@ -1,0 +1,98 @@
+package RELACION4;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Ejemplo {
+
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int opcion;
+		do {
+			mostrarMenu();
+
+			opcion = solicitarOpcion();
+
+			tratarOpcionesMenu(opcion);
+		} while (opcion !=3 ); 
+
+	}
+
+	
+
+	private static void mostrarMenu() {
+		System.out.println("MENU CALCULADORA");
+		System.out.println("1. Sumar loca");
+		System.out.println("2. Restar");
+		System.out.println("3. Multiplicar");
+		System.out.println("4. Salir");
+
+	}
+
+	
+
+	private static int solicitarOpcion() {
+
+		int opcionElegida;
+		do {
+			System.out.println("Introduce opcion (1-4):");
+			opcionElegida = Integer.parseInt(teclado.nextLine());
+
+		} while (opcionElegida < 1 || opcionElegida > 5);
+		return opcionElegida;
+
+	}
+
+	
+
+	private static void tratarOpcionesMenu(int opcion) {
+		int num1, num2;
+
+		switch (opcion) {
+		case 1:
+			  Random aleatorio = new Random();
+		        int numAleatorio = aleatorio.nextInt(100)+1;
+			System.out.println("El resultado de la suma es " + (numAleatorio + numAleatorio ));
+			break;
+		case 2:
+			num1 = solicitarNumero();
+			num2 = solicitarNumero();
+			System.out.println("El resultado de la resta es " + (num1 - num2));
+			break;
+		case 3:
+			num1 = solicitarNumero();
+			num2 = solicitarNumero();
+			System.out.println("El resultado de la multiplicacion es " + (num1 * num2));
+			break;
+		case 4:
+			num1 = solicitarNumero();
+			num2 = solicitarNumero();
+			if (num2 == 0)
+				System.out.println("Error, no se puede dividir entre cero");
+			else
+				System.out.println("El resultado de la divison es " + ((double) num1 / num2));
+			break;
+		}
+
+	}
+
+	private static int solicitarNumero() {
+			
+			int num;
+			System.out.println("Introduce un numero: ");
+			num=Integer.parseInt(teclado.nextLine());
+			return num;
+		
+
+
+
+}
+
+
+
+}
+
+

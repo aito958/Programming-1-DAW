@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"soluciones.alternativa","l":"AtaqueSimple"},{"p":"<Unnamed>","l":"Batalla"},{"p":"esquemas","l":"EsquemaVZ"},{"p":"soluciones","l":"EstrategiaSolucion"},{"p":"problemas","l":"ProblemaAtaque"},{"p":"problemas","l":"ProblemasVariable"}];updateSearchResults();

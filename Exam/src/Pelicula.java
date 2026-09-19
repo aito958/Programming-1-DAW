@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Pelicula {
+
+	private String titulo;
+	private int añoEstreno;
+	private ArrayList<Opinion> opiniones;
+	private HashSet<String> actores;
+
+	public Pelicula(String titulo, int añoEstreno) {
+		this.titulo = titulo;
+		this.añoEstreno = añoEstreno;
+		this.actores = new HashSet<>();
+		this.opiniones = new ArrayList<>();
+	}
+
+	public void añadirOpinion(Opinion opinion) {
+		opiniones.add(opinion);
+	}
+
+	public void añadirActor(String actor) {
+		actores.add(actor);
+	}
+
+	public double mediaDeOpiniones() {
+
+		if (opiniones.isEmpty()) {
+			return 0.0;
+		}
+
+		int suma = 0;
+		for (Opinion opinion : opiniones) {
+			suma += opinion.getValoracion();
+		}
+
+		return (double) suma / opiniones.size();
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public int getAñoEstreno() {
+		return añoEstreno;
+	}
+
+	public void setAñoEstreno(int annoEstreno) {
+		this.añoEstreno = annoEstreno;
+	}
+
+	public ArrayList<Opinion> getOpiniones() {
+		return opiniones;
+	}
+
+	public HashSet<String> getActores() {
+		return actores;
+	}
+
+	public String toString() {
+		return String.format("Pelicula [titulo=%s, annoEstreno=%d] Media de opiniones %.2f", titulo, añoEstreno,
+				mediaDeOpiniones());
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pelicula other = (Pelicula) obj;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
+	}
+}
+
+//¿ Crees que la elección de un LinkedList de Películas y un ArrayList de Opiniones es la adecuada?
+
+//	LinkedList para películas porque se insertan y eliminan a menudo (especialmente borrar por año), y no se necesita acceso por índice. 
+//Evita el coste de desplazar elementos como en ArrayList.
+//
+//	ArrayList para opiniones porque solo se añaden y se recorren para calcular medias; es más rápido al iterar y usa menos memoria.
+//
+//	Conclusión: cada estructura se usa según su punto fuerte, optimizando rendimiento según el uso.

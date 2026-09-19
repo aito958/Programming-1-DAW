@@ -1,0 +1,60 @@
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Temporizator2000GUI {
+
+	static JLabel etiquetaNombreJuagador;
+	static JTextField TextFieldNombreJuagador;
+	static JButton botonIniciarPartida;
+	static JButton botonConsultarRecords;
+	static JButton botonVolver;
+	static JButton botonSalir;
+
+	
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setSize(500, 500);
+
+		JPanel panel = new JPanel();
+
+		botonIniciarPartida = new JButton("Iniciar partida");
+		botonIniciarPartida.addActionListener(e -> {
+
+			etiquetaNombreJuagador.setVisible(true);
+			TextFieldNombreJuagador.setVisible(true);
+	
+			
+			botonConsultarRecords.setVisible(false);
+			botonIniciarPartida.setVisible(false);
+		});
+
+		panel.add(botonIniciarPartida);
+
+		botonConsultarRecords = new JButton("Consultar records");
+		panel.add(botonConsultarRecords);
+
+		botonVolver = new JButton(" Salir");
+		botonVolver.addActionListener(e -> System.exit(0));
+		panel.add(botonVolver);
+
+		etiquetaNombreJuagador = new JLabel("¿Cuál es tu nombre?");
+		etiquetaNombreJuagador.setVisible(false);
+		panel.add(etiquetaNombreJuagador);
+
+		TextFieldNombreJuagador = new JTextField(20);
+		TextFieldNombreJuagador.setVisible(false);
+		panel.add(TextFieldNombreJuagador);
+
+		ventana.add(panel);
+
+		ventana.setVisible(true);
+
+	}
+
+}

@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class EjemploCollection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Persona p1 = new Persona(123, "Fernando Alonso");
+		Persona p2 = new Persona(234, "Carlos Sainz");
+
+		List<Persona> pilotos = new ArrayList<Persona>();
+
+		pilotos.add(p1);
+		pilotos.add(p2);
+		System.out.println(pilotos.isEmpty());
+	}
+
+}

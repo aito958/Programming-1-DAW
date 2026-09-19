@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Temporizator2000 {
+
+	private static final Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		System.out.println("Bienvenido a Temporizator 2000, el mejor temporizador del mundo");
+		System.out.println("¿Cuál es tu nombre?");
+
+		String nombreJuagador = teclado.nextLine();
+
+		System.out.println("¿Preparado " + nombreJuagador + "?");
+		int opciones = 0;
+		do {
+			System.out.println("1. Jugar una partida");
+			System.out.println("2. Consultar el récord");
+			System.out.println("3. Salir");
+
+			opciones = Integer.parseInt(teclado.nextLine());
+
+			switch (opciones) {
+			case 1:
+				jugarPartida();
+				break;
+			case 2:
+				consultarRecord();
+				break;
+			case 3:
+				System.out.println("¡Hasta luego " + nombreJuagador + "!");
+				break;
+			default:
+				System.out.println("Opción no válida, por favor elige una opción del menú.");
+				break;
+			}
+
+		} while (opciones != 3);
+
+	}
+
+	private static void consultarRecord() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void jugarPartida() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

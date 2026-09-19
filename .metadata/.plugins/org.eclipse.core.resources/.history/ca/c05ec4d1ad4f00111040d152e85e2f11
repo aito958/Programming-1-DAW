@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Ejercico3 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nombre del fichero: ");
+        String nombreFichero = sc.nextLine();
+
+        String regex = "^[A-Za-z]{2,} [A-Za-z]{2,} ([1-9]|[1-9][0-9])$";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreFichero))) {
+            String linea;
+            int numLinea = 0;
+
+            while ((linea = br.readLine()) != null) {
+                numLinea++;
+                if (linea.matches(regex)) {
+                    System.out.println("Linea " + numLinea + ": correcta");
+                } else {
+                    System.out.println("Linea " + numLinea + ": incorrecta");
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error leyendo el fichero: " + e.getMessage());
+        }
+
+        sc.close();
+    }
+}

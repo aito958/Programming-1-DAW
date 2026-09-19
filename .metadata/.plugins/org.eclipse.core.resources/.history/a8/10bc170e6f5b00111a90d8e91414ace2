@@ -1,0 +1,510 @@
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import java.awt.image.BufferedImage;
+import javax.swing.Timer;
+
+public class Temporizator2000GUI {
+
+    // ── Paleta de colores ──────────────────────────────────────────────────────
+    static final Color BG_DARK      = new Color(10,  12,  20);
+    static final Color BG_CARD      = new Color(18,  22,  38);
+    static final Color ACCENT_CYAN  = new Color(0,  220, 200);
+    static final Color ACCENT_PURPLE= new Color(130, 80, 255);
+    static final Color TEXT_WHITE   = new Color(230, 235, 255);
+    static final Color TEXT_MUTED   = new Color(120, 130, 160);
+    static final Color BTN_HOVER    = new Color(0,  180, 165);
+
+    // ── Componentes ───────────────────────────────────────────────────────────
+    static JPanel cardMenu, cardNombre;
+    static JTextField txtNombre;
+    static JLabel lblStatus;
+    static CardLayout cards;
+    static JPanel mainContainer;
+
+    // ── Fuente principal ──────────────────────────────────────────────────────
+    static Font fontTitle, fontBtn, fontLabel, fontMono;
+
+    public static void main(String[] args) {
+        try { UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName()); }
+        catch (Exception ignored) {}
+
+        fontTitle  = new Font("SansSerif", Font.BOLD,   28);
+        fontBtn    = new Font("SansSerif", Font.BOLD,   14);
+        fontLabel  = new Font("SansSerif", Font.PLAIN,  14);
+        fontMono   = new Font("Monospaced", Font.BOLD,  22);
+
+        SwingUtilities.invokeLater(Temporizator2000GUI::buildUI);
+    }
+
+    static void buildUI() {
+        JFrame ventana = new JFrame("Temporizator 2000");
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setSize(520, 600);
+        ventana.setLocationRelativeTo(null);
+        ventana.setResizable(false);
+        ventana.setBackground(BG_DARK);
+
+        // Panel raíz con fondo
+        AnimatedBgPanel root = new AnimatedBgPanel();
+        root.setLayout(new GridBagLayout());
+
+        // Card container (CardLayout)
+        cards = new CardLayout();
+        mainContainer = new JPanel(cards);
+        mainContainer.setOpaque(false);
+        mainContainer.setPreferredSize(new Dimension(400, 440));
+
+        cardMenu   = buildMenuCard();
+        cardNombre = buildNombreCard();
+
+        mainContainer.add(cardMenu,   "MENU");
+        mainContainer.add(cardNombre, "NOMBRE");
+
+        root.add(mainContainer, new GridBagConstraints());
+        ventana.setContentPane(root);
+        ventana.setVisible(true);
+
+        // Animación de entrada
+        animarEntrada(mainContainer);
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  Tarjeta MENÚ PRINCIPAL
+    // ═══════════════════════════════════════════════════════════════════════════
+    static JPanel buildMenuCard() {
+        JPanel card = createCard();
+        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
+        card.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
+
+        // Logo / título
+        JLabel logo = new JLabel("⏱", SwingConstants.CENTER);
+        logo.setFont(new Font("SansSerif", Font.PLAIN, 52));
+        logo.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel titulo = gradientLabel("TEMPORIZATOR", 28, Font.BOLD);
+        titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel subtitulo = new JLabel("2000  •  EDICIÓN SUPREMA", SwingConstants.CENTER);
+        subtitulo.setFont(new Font("Monospaced", Font.BOLD, 11));
+        subtitulo.setForeground(ACCENT_PURPLE);
+        subtitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Separador decorativo
+        JSeparator sep = new JSeparator();
+        sep.setForeground(new Color(60, 70, 110));
+        sep.setMaximumSize(new Dimension(320, 1));
+
+        // Botones
+        GlowButton btnIniciar  = new GlowButton("▶   INICIAR PARTIDA",   ACCENT_CYAN);
+        GlowButton btnRecords  = new GlowButton("🏆   VER RÉCORDS",       ACCENT_PURPLE);
+        GlowButton btnSalir    = new GlowButton("✕   SALIR",              new Color(200, 60, 80));
+
+        // Acciones
+        btnIniciar.addActionListener(e -> {
+            cards.show(mainContainer, "NOMBRE");
+            animarEntrada(cardNombre);
+        });
+
+        btnRecords.addActionListener(e ->
+            mostrarMensaje("🏆 Récords", "¡Próximamente!\nEl hall of fame está en construcción.", ACCENT_PURPLE)
+        );
+
+        btnSalir.addActionListener(e -> {
+            animarSalida(mainContainer, () -> System.exit(0));
+        });
+
+        // Reloj animado en vivo
+        JLabel reloj = new JLabel("00:00:00", SwingConstants.CENTER);
+        reloj.setFont(fontMono);
+        reloj.setForeground(new Color(0, 200, 180, 180));
+        reloj.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        Timer clockTimer = new Timer(1000, e -> {
+            java.time.LocalTime t = java.time.LocalTime.now();
+            reloj.setText(String.format("%02d:%02d:%02d", t.getHour(), t.getMinute(), t.getSecond()));
+        });
+        clockTimer.start();
+
+        card.add(logo);
+        card.add(Box.createVerticalStrut(4));
+        card.add(titulo);
+        card.add(Box.createVerticalStrut(4));
+        card.add(subtitulo);
+        card.add(Box.createVerticalStrut(16));
+        card.add(reloj);
+        card.add(Box.createVerticalStrut(20));
+        card.add(sep);
+        card.add(Box.createVerticalStrut(24));
+        card.add(btnIniciar);
+        card.add(Box.createVerticalStrut(12));
+        card.add(btnRecords);
+        card.add(Box.createVerticalStrut(12));
+        card.add(btnSalir);
+
+        return card;
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  Tarjeta NOMBRE DEL JUGADOR
+    // ═══════════════════════════════════════════════════════════════════════════
+    static JPanel buildNombreCard() {
+        JPanel card = createCard();
+        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
+        card.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
+
+        JLabel icon = new JLabel("👾", SwingConstants.CENTER);
+        icon.setFont(new Font("SansSerif", Font.PLAIN, 48));
+        icon.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel titulo = gradientLabel("NUEVA PARTIDA", 22, Font.BOLD);
+        titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel pregunta = new JLabel("¿Cómo te llamas, jugador?", SwingConstants.CENTER);
+        pregunta.setFont(fontLabel);
+        pregunta.setForeground(TEXT_MUTED);
+        pregunta.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Campo de texto estilizado
+        txtNombre = new JTextField();
+        txtNombre.setMaximumSize(new Dimension(320, 46));
+        txtNombre.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        txtNombre.setBackground(new Color(28, 32, 52));
+        txtNombre.setForeground(TEXT_WHITE);
+        txtNombre.setCaretColor(ACCENT_CYAN);
+        txtNombre.setBorder(new RoundedBorder(ACCENT_CYAN, 10, 2));
+        txtNombre.setHorizontalAlignment(JTextField.CENTER);
+        txtNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Placeholder simulado
+        txtNombre.setText("Introduce tu nombre...");
+        txtNombre.setForeground(TEXT_MUTED);
+        txtNombre.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent e) {
+                if (txtNombre.getText().equals("Introduce tu nombre...")) {
+                    txtNombre.setText("");
+                    txtNombre.setForeground(TEXT_WHITE);
+                }
+            }
+            public void focusLost(FocusEvent e) {
+                if (txtNombre.getText().isBlank()) {
+                    txtNombre.setText("Introduce tu nombre...");
+                    txtNombre.setForeground(TEXT_MUTED);
+                }
+            }
+        });
+
+        // Status
+        lblStatus = new JLabel(" ", SwingConstants.CENTER);
+        lblStatus.setFont(new Font("SansSerif", Font.ITALIC, 13));
+        lblStatus.setForeground(ACCENT_CYAN);
+        lblStatus.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        GlowButton btnJugar = new GlowButton("▶   ¡A JUGAR!", ACCENT_CYAN);
+        GlowButton btnVolver = new GlowButton("←   MENÚ PRINCIPAL", new Color(80, 90, 140));
+
+        btnJugar.addActionListener(e -> {
+            String nombre = txtNombre.getText().trim();
+            if (nombre.isBlank() || nombre.equals("Introduce tu nombre...")) {
+                lblStatus.setForeground(new Color(220, 80, 80));
+                lblStatus.setText("⚠  Por favor, escribe tu nombre.");
+                shake(txtNombre);
+            } else {
+                lblStatus.setForeground(ACCENT_CYAN);
+                lblStatus.setText("✔  ¡Bienvenido, " + nombre + "!");
+                mostrarMensaje("¡Listo!", "Comenzando partida para:\n" + nombre + "\n\n¡Que ganes! 🎮", ACCENT_CYAN);
+            }
+        });
+
+        btnVolver.addActionListener(e -> {
+            txtNombre.setText("Introduce tu nombre...");
+            txtNombre.setForeground(TEXT_MUTED);
+            lblStatus.setText(" ");
+            cards.show(mainContainer, "MENU");
+            animarEntrada(cardMenu);
+        });
+
+        // Enter dispara el botón de jugar
+        txtNombre.addActionListener(e -> btnJugar.doClick());
+
+        card.add(icon);
+        card.add(Box.createVerticalStrut(8));
+        card.add(titulo);
+        card.add(Box.createVerticalStrut(8));
+        card.add(pregunta);
+        card.add(Box.createVerticalStrut(28));
+        card.add(txtNombre);
+        card.add(Box.createVerticalStrut(10));
+        card.add(lblStatus);
+        card.add(Box.createVerticalStrut(20));
+        card.add(btnJugar);
+        card.add(Box.createVerticalStrut(12));
+        card.add(btnVolver);
+
+        return card;
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  Helpers de animación
+    // ═══════════════════════════════════════════════════════════════════════════
+    static void animarEntrada(JComponent comp) {
+        comp.setVisible(true);
+        float[] alpha = {0f};
+        Timer t = new Timer(16, null);
+        t.addActionListener(e -> {
+            alpha[0] = Math.min(1f, alpha[0] + 0.06f);
+            comp.setEnabled(alpha[0] > 0.5f);
+            comp.repaint();
+            if (alpha[0] >= 1f) ((Timer) e.getSource()).stop();
+        });
+        t.start();
+    }
+
+    static void animarSalida(JComponent comp, Runnable onDone) {
+        Timer t = new Timer(16, null);
+        t.addActionListener(e -> {
+            comp.repaint();
+            onDone.run();
+            ((Timer) e.getSource()).stop();
+        });
+        t.start();
+    }
+
+    static void shake(JComponent comp) {
+        Point origin = comp.getLocation();
+        int[] offsets = {-8, 8, -6, 6, -4, 4, -2, 2, 0};
+        Timer t = new Timer(30, null);
+        int[] i = {0};
+        t.addActionListener(e -> {
+            if (i[0] < offsets.length) {
+                comp.setLocation(origin.x + offsets[i[0]], origin.y);
+                i[0]++;
+            } else {
+                comp.setLocation(origin);
+                ((Timer) e.getSource()).stop();
+            }
+        });
+        t.start();
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  Helpers de UI
+    // ═══════════════════════════════════════════════════════════════════════════
+    static JPanel createCard() {
+        JPanel p = new JPanel() {
+            @Override protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(BG_CARD);
+                g2.fill(new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 24, 24));
+                // Borde degradado
+                g2.setStroke(new BasicStroke(1.5f));
+                g2.setColor(new Color(60, 80, 140, 160));
+                g2.draw(new RoundRectangle2D.Float(1, 1, getWidth()-2, getHeight()-2, 24, 24));
+                g2.dispose();
+            }
+        };
+        p.setOpaque(false);
+        return p;
+    }
+
+    static JLabel gradientLabel(String text, int size, int style) {
+        return new JLabel(text, SwingConstants.CENTER) {
+            @Override protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+                g2.setFont(new Font("SansSerif", style, size));
+                GradientPaint gp = new GradientPaint(0, 0, ACCENT_CYAN, getWidth(), 0, ACCENT_PURPLE);
+                g2.setPaint(gp);
+                FontMetrics fm = g2.getFontMetrics();
+                int x = (getWidth() - fm.stringWidth(getText())) / 2;
+                int y = (getHeight() + fm.getAscent() - fm.getDescent()) / 2;
+                g2.drawString(getText(), x, y);
+                g2.dispose();
+            }
+        };
+    }
+
+    static void mostrarMensaje(String titulo, String msg, Color accentColor) {
+        JDialog dlg = new JDialog();
+        dlg.setUndecorated(true);
+        dlg.setBackground(new Color(0, 0, 0, 0));
+        dlg.setModal(true);
+
+        JPanel panel = new JPanel() {
+            @Override protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(BG_CARD);
+                g2.fill(new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 20, 20));
+                g2.setStroke(new BasicStroke(2));
+                g2.setColor(accentColor);
+                g2.draw(new RoundRectangle2D.Float(1, 1, getWidth()-2, getHeight()-2, 20, 20));
+                g2.dispose();
+            }
+        };
+        panel.setOpaque(false);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 40, 30, 40));
+
+        JLabel lTitulo = new JLabel(titulo, SwingConstants.CENTER);
+        lTitulo.setFont(new Font("SansSerif", Font.BOLD, 18));
+        lTitulo.setForeground(accentColor);
+        lTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        for (String linea : msg.split("\n")) {
+            JLabel l = new JLabel(linea.isEmpty() ? " " : linea, SwingConstants.CENTER);
+            l.setFont(fontLabel);
+            l.setForeground(TEXT_WHITE);
+            l.setAlignmentX(Component.CENTER_ALIGNMENT);
+            panel.add(l);
+        }
+
+        GlowButton btnOk = new GlowButton("OK", accentColor);
+        btnOk.addActionListener(e -> dlg.dispose());
+        btnOk.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        panel.add(lTitulo);
+        panel.add(Box.createVerticalStrut(14));
+        for (Component c : panel.getComponents()) if (c instanceof JLabel) ((JLabel)c).setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(Box.createVerticalStrut(14));
+        panel.add(btnOk);
+
+        dlg.setContentPane(panel);
+        dlg.pack();
+        dlg.setSize(Math.max(dlg.getWidth(), 300), dlg.getHeight() + 10);
+        dlg.setLocationRelativeTo(null);
+        dlg.setVisible(true);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+//  Fondo animado con partículas
+// ═══════════════════════════════════════════════════════════════════════════════
+class AnimatedBgPanel extends JPanel {
+    private final float[][] particles;
+    private final Color[] pColors = {
+        new Color(0, 220, 200, 60),
+        new Color(130, 80, 255, 50),
+        new Color(0, 180, 255, 40)
+    };
+
+    AnimatedBgPanel() {
+        setBackground(new Color(10, 12, 20));
+        particles = new float[40][4]; // x, y, speed, colorIdx
+        for (float[] p : particles) {
+            p[0] = (float) (Math.random() * 520);
+            p[1] = (float) (Math.random() * 600);
+            p[2] = (float) (Math.random() * 0.6 + 0.2);
+            p[3] = (float) (Math.random() * 3);
+        }
+        Timer t = new Timer(30, e -> { updateParticles(); repaint(); });
+        t.start();
+    }
+
+    void updateParticles() {
+        for (float[] p : particles) {
+            p[1] -= p[2];
+            if (p[1] < -4) { p[1] = getHeight() + 4; p[0] = (float)(Math.random() * getWidth()); }
+        }
+    }
+
+    @Override protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        // Fondo con viñeta
+        GradientPaint vignette = new GradientPaint(0, 0, new Color(20, 10, 40, 80),
+                getWidth()/2f, getHeight()/2f, new Color(0,0,0,0));
+        g2.setPaint(vignette);
+        g2.fillRect(0, 0, getWidth(), getHeight());
+
+        // Partículas
+        for (float[] p : particles) {
+            int ci = (int) p[3] % pColors.length;
+            g2.setColor(pColors[ci]);
+            g2.fillOval((int)p[0], (int)p[1], 3, 3);
+        }
+        g2.dispose();
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+//  Botón con efecto glow
+// ═══════════════════════════════════════════════════════════════════════════════
+class GlowButton extends JButton {
+    private final Color accent;
+    private boolean hovered = false;
+
+    GlowButton(String text, Color accent) {
+        super(text);
+        this.accent = accent;
+        setOpaque(false);
+        setContentAreaFilled(false);
+        setBorderPainted(false);
+        setFocusPainted(false);
+        setFont(new Font("SansSerif", Font.BOLD, 14));
+        setForeground(Color.WHITE);
+        setMaximumSize(new Dimension(320, 48));
+        setPreferredSize(new Dimension(320, 48));
+        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent e) { hovered = true; repaint(); }
+            public void mouseExited(MouseEvent e)  { hovered = false; repaint(); }
+        });
+    }
+
+    @Override protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        Color fill = hovered
+            ? new Color(accent.getRed(), accent.getGreen(), accent.getBlue(), 50)
+            : new Color(accent.getRed(), accent.getGreen(), accent.getBlue(), 20);
+
+        g2.setColor(fill);
+        g2.fill(new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 12, 12));
+
+        g2.setStroke(new BasicStroke(hovered ? 2f : 1.2f));
+        g2.setColor(new Color(accent.getRed(), accent.getGreen(), accent.getBlue(), hovered ? 220 : 140));
+        g2.draw(new RoundRectangle2D.Float(1, 1, getWidth()-2, getHeight()-2, 12, 12));
+
+        // Texto
+        g2.setFont(getFont());
+        g2.setColor(hovered ? accent.brighter() : Color.WHITE);
+        FontMetrics fm = g2.getFontMetrics();
+        int x = (getWidth() - fm.stringWidth(getText())) / 2;
+        int y = (getHeight() + fm.getAscent() - fm.getDescent()) / 2;
+        g2.drawString(getText(), x, y);
+        g2.dispose();
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+//  Borde redondeado para JTextField
+// ═══════════════════════════════════════════════════════════════════════════════
+class RoundedBorder extends AbstractBorder {
+    private final Color color;
+    private final int radius, thickness;
+
+    RoundedBorder(Color color, int radius, int thickness) {
+        this.color = color; this.radius = radius; this.thickness = thickness;
+    }
+
+    @Override public void paintBorder(Component c, Graphics g, int x, int y, int w, int h) {
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(color);
+        g2.setStroke(new BasicStroke(thickness));
+        g2.draw(new RoundRectangle2D.Float(x+1, y+1, w-2, h-2, radius, radius));
+        g2.dispose();
+    }
+
+    @Override public Insets getBorderInsets(Component c) { return new Insets(8, 14, 8, 14); }
+    @Override public Insets getBorderInsets(Component c, Insets i) {
+        i.set(8, 14, 8, 14); return i;
+    }
+}

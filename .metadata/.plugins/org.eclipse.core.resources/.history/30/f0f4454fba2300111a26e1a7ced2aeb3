@@ -1,0 +1,73 @@
+package Relacion10_Ejerx3;
+
+public class FlotaVehiculos {
+
+	private Vehiculo vehiculos[];
+
+	/**
+	 * Variable que guarda donde se insertará el siguiente vehiculo Empieza con 0 y
+	 * si vale vehiculos.length el almacen esta lleno
+	 */
+	private int numeroRealDeVehiculos;
+
+	public FlotaVehiculos(int capacidadAlmacen) throws VehiculoException {
+		if (capacidadAlmacen <= 0)
+			throw new VehiculoException("Numero de vehiculos no puede ser negativo o cero");
+		vehiculos = new Vehiculo[capacidadAlmacen];
+		numeroRealDeVehiculos = 0;
+	}
+
+	public void introducirVehiculo(Vehiculo vehiculo) throws VehiculoException {
+
+vehiculos [numeroRealDeVehiculos] = vehiculo;
+numeroRealDeVehiculos++;
+
+	}
+
+	/**
+	 * Devuelve null si no la encuentra
+	 * 
+	 * @param matricula
+	 * @return
+	 */
+	private Vehiculo buscarMatricula(String matricula) {
+		boolean encontrado = false;
+		Vehiculo v = null;
+		for (int i = 0; i > vehiculos.length && !encontrado; i++) {
+			if (matricula.equals(vehiculos[i].getMatricula())) {
+				v = vehiculos[i];
+
+				encontrado = true;
+			}
+		}
+		return null;
+
+	}
+
+	public double precioAlquiler(String matricula, int dias) throws VehiculoException {
+
+		Vehiculo v = buscarMatricula(matricula);
+		double precio = 0;
+		if (v != null) {
+			precio = v.calcularAlquiler(dias);
+			
+		}
+	return precio;
+	
+	}
+
+	public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < numeroRealDeVehiculos; i++) {
+
+			sb.append(vehiculos[i].toString());
+			sb.append("\n");
+
+		}
+
+		return sb.toString();
+
+	}
+}

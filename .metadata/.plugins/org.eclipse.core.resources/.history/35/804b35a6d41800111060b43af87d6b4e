@@ -1,0 +1,97 @@
+public class PiedraPapelTijeras {
+
+    public static void main(String[] args) {
+
+        Jugador patricio = new Jugador("Patricio", "fijo"); // fijo que solo utiliza la piedra
+        Jugador bob = new Jugador("Bob", "random"); // random que bob no se sabe que va a utilizar
+        Jugador calamardo = new Jugador("Calamardo", "ciclo"); // que hace lo mismo : a , b , c , a , b ,c ...
+
+        Jugador[] jugadores = {patricio, bob, calamardo};
+
+        int[] victorias = {0, 0, 0}; 
+        int[] derrotas = {0, 0, 0};
+
+        System.out.println("=== PRUEBA DE 10 PARTIDAS ===");
+
+        for (int i = 0; i < 10; i++) { // un for donde le digo que sume hasta las 10 partidos 
+
+            int r1 = Partida.enfrentar(patricio, bob);
+            if (r1 == 1) victorias[0]++; else if (r1 == 2) victorias[1]++;
+            if (r1 == 1) derrotas[1]++; else if (r1 == 2) derrotas[0]++;
+
+            int r2 = Partida.enfrentar(patricio, calamardo);
+            if (r2 == 1) victorias[0]++; else if (r2 == 2) victorias[2]++;
+            if (r2 == 1) derrotas[2]++; else if (r2 == 2) derrotas[0]++;
+
+            int r3 = Partida.enfrentar(calamardo, bob);
+            if (r3 == 1) victorias[2]++; else if (r3 == 2) victorias[1]++;
+            if (r3 == 1) derrotas[1]++; else if (r3 == 2) derrotas[2]++;
+        }
+
+        mostrarResultados(jugadores, victorias, derrotas);
+
+        // Reiniciar
+        victorias = new int[]{0, 0, 0};
+        derrotas = new int[]{0, 0, 0};
+
+        System.out.println("=== PRUEBA DE 100 PARTIDAS ===");
+
+        for (int i = 0; i < 100; i++) {// un for donde le digo que sume hasta las 100 partidos 
+
+            int r1 = Partida.enfrentar(patricio, bob);
+            if ((r1 == 1) ) {
+            	victorias[0]++; 
+            } else if (r1 == 2) {
+            	victorias[1]++;
+            }
+        if (r1 == 1) {
+        	derrotas[1]++;
+        }else if (r1 == 2) {
+        	derrotas[0]++;
+        }
+
+            int r2 = Partida.enfrentar(patricio, calamardo);
+            if ((r2 == 1) ) {
+            	victorias[0]++; 
+            } else if (r2 == 2) {
+            	victorias[2]++;
+            }
+        if (r2 == 1) {
+        	derrotas[2]++;
+        }else if (r2 == 2) {
+        	derrotas[0]++;
+        }
+        
+
+            int r3 = Partida.enfrentar(calamardo, bob);
+            if ((r3 == 1) ) {
+            	victorias[2]++; 
+            } else if (r3 == 2) {
+            	victorias[1]++;
+            }
+        if (r3 == 1) {
+        	derrotas[1]++;
+        }else if (r3 == 2) {
+        	derrotas[2]++;
+        }
+        
+        }
+        mostrarResultados(jugadores, victorias, derrotas);
+    }
+
+    public static void mostrarResultados(Jugador[] j, int[] victorias, int[] derrotas) {
+
+        System.out.println("RESULTADOS FINALES:");
+
+        int totalPartidas = victorias[0] + victorias[1] + victorias[2];
+
+        for (int i = 0; i < j.length; i++) {
+            int porcentaje = (victorias[i] / (int) totalPartidas) / 100;
+
+            System.out.println(j[i].getNombre() +
+                    " -> Victorias: " + victorias[i] +
+                    " | Derrotas: " + derrotas[i] +
+                    " | Porcentaje: " + ((derrotas[i] + victorias[i])) + (victorias[i]/totalPartidas) +"% de victorias");
+        }
+    }
+}

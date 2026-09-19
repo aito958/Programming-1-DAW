@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Arrays_tri.g.java&apos; to &apos;Cofre.java&apos;&#x0D;&#x0A;- Original project: &apos;Tema 5&apos;&#x0D;&#x0A;- Original element: &apos;Arrays_tri.g.java&apos;&#x0D;&#x0A;- Renamed element: &apos;Arrays_tri.Cofre.java&apos;" description="Rename compilation unit &apos;g.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;Arrays_tri{g.java" name="Cofre.java" references="false" stamp="1774265186215" version="1.0"/>
+</session>

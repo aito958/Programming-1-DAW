@@ -1,0 +1,33 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.concurrent.PriorityBlockingQueue;
+
+public class EjemploMapa {
+
+	public static void main(String[] args) {
+
+		Map<Integer, Persona> equipo = new HashMap<Integer ,Persona>();
+		
+		Persona p1 = new Persona(123, "Fernando Alonso");
+		Persona p2 = new Persona(234, "Carlos Sainz");
+
+		equipo.put(Integer.valueOf(p1.DNI), p1);
+		equipo.put(Integer.valueOf(p1.DNI), p2);
+
+		
+		
+		System.out.println(equipo);
+		
+		Stack<Persona> pilaPersona =  new Stack<Persona>();	
+		pilaPersona.push(p1);
+		pilaPersona.push(p2);
+		System.out.println(pilaPersona);
+		
+		Queue<Persona> colaPersona = new PriorityQueue<Persona>();
+
+	}
+
+}

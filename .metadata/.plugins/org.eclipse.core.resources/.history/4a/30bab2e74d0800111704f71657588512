@@ -1,0 +1,23 @@
+package POO_II;
+
+public class Almacen {
+
+	public static void main(String[] args) {
+
+		System.out.println("Bienvenido al almacen de awuebo");
+		System.out.println("-------------------------------------------");
+		System.out.println("Regrista el producto");
+		producto = teclado.nextInt();
+
+		switch (key) {
+		case value:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+}

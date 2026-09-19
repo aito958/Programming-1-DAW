@@ -1,0 +1,64 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Temporizator2000 {
+
+	private static final Scanner teclado = new Scanner(System.in);
+	private static final int LIMITE_INFERIOR_NUMERO_ALEATORIO = 5;
+	private static final int LIMITE_SUPERIOR_NUMERO_ALEATORIO = 15;
+
+	public static void main(String[] args) {
+
+		System.out.println("Bienvenido a Temporizator 2000, el mejor temporizador del mundo");
+		System.out.println("¿Cuál es tu nombre?");
+
+		String nombreJuagador = teclado.nextLine();
+
+		System.out.println("¿Preparado " + nombreJuagador + "?");
+		int opciones = 0;
+		do {
+			System.out.println("1. Jugar una partida");
+			System.out.println("2. Consultar el récord");
+			System.out.println("3. Salir");
+
+			opciones = Integer.parseInt(teclado.nextLine());
+
+			switch (opciones) {
+			case 1:
+				jugarPartida();
+				break;
+			case 2:
+				consultarRecord();
+				break;
+			case 3:
+				System.out.println("¡Hasta luego " + nombreJuagador + "!");
+				break;
+			default:
+				System.out.println("Opción no válida, por favor elige una opción del menú.");
+				break;
+			}
+
+		} while (opciones != 3);
+
+	}
+
+	private static void consultarRecord() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void jugarPartida() {
+		System.out.println("Preparado......... empieza a contar hasta ..........");
+		Random aleatorio = new Random();
+		int numero = aleatorio.nextInt(LIMITE_INFERIOR_NUMERO_ALEATORIO, LIMITE_SUPERIOR_NUMERO_ALEATORIO + 1);
+		System.out.println(numero);
+		System.out.println("¡Pulsa cualquier tecla cuendo creas que has pasado el tiempo suficiente!");
+
+		long tiempoInicio = System.nanoTime();
+		teclado.nextLine();
+		long tiempoFin = System.nanoTime();
+		long puntuacion = numero - (tiempoFin - tiempoInicio);
+		System.out.println("Tu puntuación es: " + puntuacion/1000000000.0 + " segundos");
+	}
+
+}

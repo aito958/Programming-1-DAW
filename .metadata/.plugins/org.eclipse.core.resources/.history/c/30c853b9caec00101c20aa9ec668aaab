@@ -1,0 +1,9 @@
+
+public class bataja {
+
+	public static void main(String[] args) {
+
+		Carta miCarta = new Carta(7, "Corazones");
+	}
+
+}

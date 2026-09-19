@@ -1,0 +1,36 @@
+package Ejercicio01.relacion12.pizzeria;
+import java.util.LinkedList;
+
+
+
+public class ColaPedidos {
+	private LinkedList<Pedido> listaDePedidos;
+	
+	public ColaPedidos(){
+		listaDePedidos = new  LinkedList<Pedido>();
+	}
+	
+	public void agregarPedido(Pedido p){
+		listaDePedidos.add(p);
+	}
+	
+	public Pedido atenderPedido() throws PizzaException{
+		
+		try {
+			
+			return listaDePedidos.removeFirst();
+		} catch (Exception e) {
+			throw new PizzaException("No hay pedidos en la cola");
+		}
+		
+	}
+
+	
+	public int numeroDePedidosEnCola() {
+		
+		
+	}
+	
+	
+
+}

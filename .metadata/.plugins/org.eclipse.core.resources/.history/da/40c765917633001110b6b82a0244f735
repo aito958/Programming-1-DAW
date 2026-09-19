@@ -1,0 +1,330 @@
+package juego;
+
+import java.util.Random;
+import java.util.Scanner;
+
+import bloque.Bloque;
+import bloque.categoria.BloqueMineral;
+import bloque.categoria.BloqueTierra;
+import bloque.categoria.BloqueVegetal;
+import bloque.material.*;
+
+public class Juego {
+
+	public static final int TAMANO_MUNDO = 10;
+
+	public static void main(String[] args) {
+		Bloque[][][] mundo3D = generarMundo();
+		Jugador yo = new Jugador("Steve");
+
+		colocarJugadorInicial(yo, mundo3D);
+
+		Scanner sc = new Scanner(System.in);
+		boolean salir = false;
+		
+		// menu basico para elegir las opciones
+		while (!salir) {
+			System.out.println("===== MENÚ PRINCIPAL =====");
+			System.out.println("1. Mover");
+			System.out.println("2. Crear herramientas");
+			System.out.println("3. Estado");
+			System.out.println("4. [Especial] Radar de proximidad");
+			System.out.println("0. Salir");
+			System.out.print("Elige una opción: ");
+
+			String opcion = sc.nextLine();
+
+			switch (opcion) { // switch al poner numero ejecutar el metodo suyo 
+			case "1":
+				gestionarMovimiento(yo, mundo3D, sc);
+				break;
+			case "2":
+				yo.fabricarHerramientas();
+				break;
+			case "3":
+				System.out.println(yo);
+				break;
+			case "4":
+				usarRadar(yo, mundo3D);
+				break;
+			case "99":
+				mostrarMapaSecreto(mundo3D);
+				break;
+			case "0":
+				salir = true;
+				System.out.println("Saliendo del juego...");
+				break;
+			default:
+				System.out.println("Opción no válida.");
+			}
+
+			if (yo.haGanado()) { // Comprobamos después de cada acción si el jugador ya tiene todos los materiales necesarios par ganar  
+				System.out.println("¡ENHORABUENA! Has recolectado 7 materias de cada tipo. ¡HAS GANADO!");
+				System.out.println(yo);
+				salir = true;
+			}
+		}
+		sc.close();
+	}
+
+	/**
+	 * Genera el mundo cumpliendo: Suelo (z=0, z=1) sin bloques vacíos. Resto del
+	 * mundo con alta probabilidad de bloques vacíos para asegurar > 50% en total.
+	 */
+	public static Bloque[][][] generarMundo() {
+		Bloque[][][] mundo = new Bloque[TAMANO_MUNDO][TAMANO_MUNDO][TAMANO_MUNDO];
+		Random radmon = new Random();
+
+		for (int z = 0; z < TAMANO_MUNDO; z++) {
+			for (int x = 0; x < TAMANO_MUNDO; x++) {
+				for (int y = 0; y < TAMANO_MUNDO; y++) {
+					if (z < 2) {
+						// Suelo: Nunca vacío (forzamos un tipo de materia válido, del 0 al 5)
+						int tipo = radmon.nextInt(Bloque.NUM_MATERIAS);
+						mundo[x][y][z] = fabricadorDeBloques(tipo, x, y, z);
+					} else {
+						// Para asegurar que al menos la mitad (500) sean vacíos, damos un 65% de
+						// probabilidad de ser vacío a las capas superiores (z de 2 a 9).
+						if (radmon.nextDouble() < 0.65) {
+							mundo[x][y][z] = new BloqueVacio(x, y, z);
+						} else {
+							int tipo = radmon.nextInt(Bloque.NUM_MATERIAS);
+							mundo[x][y][z] = fabricadorDeBloques(tipo, x, y, z);
+						}
+					}
+				}
+			}
+		}
+		return mundo;
+	}
+
+	/**
+	 * Crea un objeto de bloque específico según el número recibido.
+	 * Es como una fábrica: le das un código y te devuelve el bloque de material correspondiente.
+	 */
+	
+	private static Bloque fabricadorDeBloques(int tipo, int x, int y, int z) {
+		switch (tipo) {
+		case Bloque.ALBERO:
+			return new BloqueAlbero(x, y, z);
+		case Bloque.ARBOL:
+			return new BloqueArbol(x, y, z);
+		case Bloque.ARCILLA:
+			return new BloqueArcilla(x, y, z);
+		case Bloque.COBRE:
+			return new BloqueCobre(x, y, z);
+		case Bloque.HIERRO:
+			return new BloqueHierro(x, y, z);
+		case Bloque.PLANTA:
+			return new BloquePlanta(x, y, z);
+		default:
+			return new BloqueVacio(x, y, z);
+		}
+	}
+
+	/**
+	 * Coloca al jugador en la primera posición vacía (menor x, y, z posible).
+	 */
+	public static void colocarJugadorInicial(Jugador jugador, Bloque[][][] mundo) {
+		for (int z = 0; z < TAMANO_MUNDO; z++) {
+			for (int y = 0; y < TAMANO_MUNDO; y++) {
+				for (int x = 0; x < TAMANO_MUNDO; x++) {
+					if (mundo[x][y][z] instanceof BloqueVacio) {
+						jugador.setPosicion(x, y, z);
+						System.out.println("Jugador " + jugador.nombre + " posicionado inicialmente en: (X:" + x + ", Y:" + y + ", Z:" + z + ")");
+						return; // Terminamos en cuanto encontramos el primero
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Gestiona el movimiento y la destrucción de bloques con desgaste de herramientas.
+	 */
+	public static void gestionarMovimiento(Jugador j, Bloque[][][] mundo, Scanner sc) {
+		System.out.println("¿Hacia donde te quieres mover? (W: Arriba[+z], S: Abajo[-z], A: Izq[-x], D: Der[+x], Q: Adelante[+y], E: Atrás[-y])");
+		String teclaPulsada = sc.nextLine().toUpperCase();
+
+		int nextX = j.x;
+		int nextY = j.y;
+		int nextZ = j.z;
+
+		switch (teclaPulsada.toLowerCase()) { // Pasamos a minúsculas por si acaso
+		// si pulsa en la tecla un de estas opciones vemos segun la direccion sumamos o restamos coordenadas segun el eje de coordenadas cartesianas (x , y ,z )
+		case "d":
+			nextX = nextX + 1;
+			break;
+		case "a":
+			nextX = nextX - 1;
+			break;
+		case "q":
+			nextY = nextY + 1;
+			break;
+		case "e":
+			nextY = nextY - 1;
+			break;
+		case "w":
+			nextZ = nextZ + 1;
+			break;
+		case "s":
+			nextZ = nextZ - 1;
+			break;
+		default:
+			// Si el usuario mete cualquier otra cosa
+			System.out.println("Error: Dirección " + teclaPulsada + " no reconocida.");
+			return; // Cortamos la ejecución del movimiento aquí
+		}
+
+		// Control de límites manual  , si las coordenadas son mayores que el tamaño del mundo ( se pasa del limete de coordenadas) vuelva a 0 (spawn)
+		if (nextX >= TAMANO_MUNDO) { 
+			nextX = 0; 
+		}
+		if (nextX < 0) { nextX = TAMANO_MUNDO - 1; 
+		}
+		if (nextY >= TAMANO_MUNDO) { 
+			nextY = 0;
+		}
+		if (nextY < 0) { nextY = TAMANO_MUNDO - 1;
+		}
+		if (nextZ >= TAMANO_MUNDO) { 
+			nextZ = 0;
+		}
+		if (nextZ < 0) {
+        nextZ = TAMANO_MUNDO - 1;
+		}
+
+		Bloque bloqueDestino = mundo[nextX][nextY][nextZ];
+
+		if (bloqueDestino instanceof BloqueVacio) {
+			j.setPosicion(nextX, nextY, nextZ);
+			System.out.println("Te has movido a una casilla vacía: (" + nextX + "," + nextY + "," + nextZ + ")");
+		} else {
+			System.out.println("Hay un bloque interponiéndose!! , ¿Con qué intentas destruirlo?");
+			System.out.println("1. Pico | 2. Pala | 3. Hacha");
+			String opcion = sc.nextLine();
+
+			// Validamos que elija una opción que exista
+			if (!opcion.equals("1") && !opcion.equals("2") && !opcion.equals("3")) {
+				System.out.println("Herramienta no válida. Cancelando movimiento.");
+				return;
+			}
+
+			int usos = 0;
+
+			// Miramos cuántos usos tiene la herramienta que ha elegido el usuario
+			if (opcion.equals("1")) {
+				usos = j.usosPico;
+			} else if (opcion.equals("2")) {
+				usos = j.usosPala;
+			} else if (opcion.equals("3")) {
+				usos = j.usosHacha;
+			}
+
+			// Si la herramienta tiene usos (es mayor que 0)
+			if (usos > 0) {
+				
+				// 1. Miramos qué herramienta es la que debería usarse para este bloque
+				String herramientaCorrecta = "";
+				if (bloqueDestino instanceof BloqueMineral) {
+					herramientaCorrecta = "1"; // El Pico
+				} else if (bloqueDestino instanceof BloqueTierra) {
+					herramientaCorrecta = "2"; // La Pala
+				} else if (bloqueDestino instanceof BloqueVegetal) {
+					herramientaCorrecta = "3"; // El Hacha
+				}
+
+				// 2. Gastamos el uso en la variable real del jugador
+				if (opcion.equals("1")) {
+					j.usosPico = j.usosPico - 1;
+				} else if (opcion.equals("2")) {
+					j.usosPala = j.usosPala - 1;
+				} else if (opcion.equals("3")) {
+					j.usosHacha = j.usosHacha - 1;
+				}
+
+				// 3. Comprobamos si la herramienta que ha elegido el usuario es la correcta
+				if (opcion.equals(herramientaCorrecta)) {
+					// Si es correcta, llamamos a destruir pasando el nombre de la herramienta que espera el bloque
+					String nombreH = "";
+					if (opcion.equals("1")) nombreH = BloqueMineral.HERRAMIENTA;
+					if (opcion.equals("2")) nombreH = BloqueTierra.HERRAMIENTA;
+					if (opcion.equals("3")) nombreH = BloqueVegetal.HERRAMIENTA;
+					
+					bloqueDestino.destruir(nombreH, j);
+					System.out.println("Bloque destruido correctamente! Has recolectado el material.");
+				} else {
+					// Si no es la correcta, el bloque se rompe pero no recolectamos nada
+					System.out.println("Herramienta incorrecta... El bloque se destruye pero no obtienes los materiales.");
+				}
+
+				// 4. Movemos al jugador y vaciamos la casilla
+				mundo[nextX][nextY][nextZ] = new BloqueVacio(nextX, nextY, nextZ);
+				j.setPosicion(nextX, nextY, nextZ);
+				System.out.println("Te has movido a las coordenadas: (" + nextX + "," + nextY + "," + nextZ + ")");
+
+			} else {
+				// Si 'usos' era 0 o menos
+				System.out.println("Tu herramienta está rota! (0 usos). Debes repararla.");
+				System.out.println("No te has podido mover.");
+			}
+		}
+	}
+
+	/**
+	 * Radar de Proximidad. Analiza un área
+	 * de 3x3x3 alrededor del jugador para contar cuántos recursos hay cerca,
+	 * ayudando al jugador a decidir hacia dónde picar. Consume 1 uso de cualquier
+	 * herramienta al azar.
+	 */
+	public static void usarRadar(Jugador j, Bloque[][][] mundo) {
+		System.out.println("[Activando Radar de Proximidad...]");
+		int bloquesUtiles = 0;
+
+		for (int z = -1; z <= 1; z++) {
+			for (int y = -1; y <= 1; y++) {
+				for (int x = -1; x <= 1; x++) {
+					// Comprobar límites toroidales
+					int checkX = (j.x + x + TAMANO_MUNDO) % TAMANO_MUNDO;
+					int checkY = (j.y + y + TAMANO_MUNDO) % TAMANO_MUNDO;
+					int checkZ = (j.z + z + TAMANO_MUNDO) % TAMANO_MUNDO;
+
+					if (!(mundo[checkX][checkY][checkZ] instanceof BloqueVacio)) {
+						bloquesUtiles++;
+					}
+				}
+			}
+		}
+		System.out.println("El radar indica que hay " + bloquesUtiles + " bloques sólidos en tu entorno inmediato (3x3).");
+	}
+
+	/**
+	 * Opción secreta: Muestra la cantidad total de bloques en el mundo por
+	 * categoría.
+	 */
+	public static void mostrarMapaSecreto(Bloque[][][] mundo) {
+		int vacios = 0, minerales = 0, tierras = 0, vegetales = 0;
+
+		for (int z = 0; z < TAMANO_MUNDO; z++) {
+			for (int y = 0; y < TAMANO_MUNDO; y++) {
+				for (int x = 0; x < TAMANO_MUNDO; x++) {
+					Bloque b = mundo[x][y][z];
+					if (b instanceof BloqueVacio)
+						vacios++;
+					else if (b instanceof BloqueMineral)
+						minerales++;
+					else if (b instanceof BloqueTierra)
+						tierras++;
+					else if (b instanceof BloqueVegetal)
+						vegetales++;
+				}
+			}
+		}
+		System.out.println("--- MAPA SECRETO (Estadísticas globales) ---");
+		System.out.println("Bloques vacíos: " + vacios + " (" + ((vacios * 100) / 1000) + "%)");
+		System.out.println("Bloques Minerales: " + minerales);
+		System.out.println("Bloques de Tierra: " + tierras);
+		System.out.println("Bloques Vegetales: " + vegetales);
+		System.out.println("-------------------------------------------------");
+	}
+}

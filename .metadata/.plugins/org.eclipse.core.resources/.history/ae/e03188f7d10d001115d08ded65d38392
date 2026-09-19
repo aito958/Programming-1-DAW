@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Ejercico2 {
+    public static void main(String[] args) {
+        // Scanner para leer entrada del usuario
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar una frase al usuario
+        System.out.print("Ingresa una frase: ");
+        String frase = scanner.nextLine();
+        
+        // Convertir la frase a minúsculas para contar sin importar mayúsculas/minúsculas
+        frase = frase.toLowerCase();
+        
+        // String con las letras del abecedario
+        String abecedario = "abcdefghijklmnopqrstuvwxyz";
+        
+        // Array de contadores (uno para cada letra del abecedario)
+        int[] contadores = new int[abecedario.length()];
+        
+        // Contar las letras en la frase
+        for (char letra : frase.toCharArray()) {
+            // Buscar el índice de la letra en el abecedario
+            int indice = abecedario.indexOf(letra);
+            // Si la letra está en el abecedario, incrementar su contador
+            if (indice != -1) {
+                contadores[indice]++;
+            }
+        }
+        
+        // Mostrar solo las letras que aparecen al menos una vez
+        System.out.println("\nResultado:");
+        System.out.println("------------------------------");
+        
+        for (int i = 0; i < abecedario.length(); i++) {
+            if (contadores[i] > 0) {
+                System.out.println("La letra '" + abecedario.charAt(i) + 
+                                 "' aparece " + contadores[i] + " veces");
+            }
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+}

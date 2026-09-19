@@ -1,0 +1,14 @@
+
+public class Ejemplos {
+
+	public static void main(String[] args) {
+
+		int x = 10;
+		Integer y = Integer.valueOf("123456789");
+
+		x = Integer.reverse(y);
+
+		System.out.println(x);
+	}
+
+}

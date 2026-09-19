@@ -1,0 +1,11 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class EjemploMapa {
+
+	public static void main(String[] args) {
+
+		Map<String,Persona> equipo = new HashMap<String,Persona>();
+	}
+
+}

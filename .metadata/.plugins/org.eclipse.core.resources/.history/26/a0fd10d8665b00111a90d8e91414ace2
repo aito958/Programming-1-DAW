@@ -1,0 +1,10 @@
+import javax.swing.JFrame;
+
+public class Temporizator2000GUI {
+
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+	}
+
+}

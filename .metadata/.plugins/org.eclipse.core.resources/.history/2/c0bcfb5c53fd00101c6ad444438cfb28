@@ -1,0 +1,110 @@
+package POO_II;
+
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+public class MiEntradaSalida {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static int solicitarEntero(String mensaje) {
+		int entero = 0;
+		boolean noValido = true;
+
+		do {
+			System.out.print(mensaje);
+			try {
+				entero = teclado.nextInt();
+				noValido = false;
+			} catch (InputMismatchException e) {
+				System.out.println("Error: introduce un número entero válido.");
+				teclado.next();
+			} catch (NoSuchElementException e) {
+				System.out.println("Error de entrada: " + e.getMessage());
+				noValido = true;
+			} catch (IllegalStateException e) {
+				System.out.println("Scanner cerrado: " + e.getMessage());
+				noValido = true;
+			}
+		} while (noValido);
+
+		return entero;
+	}
+
+	public static int solicitarEnteroPositivo(String mensaje) throws EnteroNegativoException {
+		int entero = 0;
+		boolean noValido = true;
+		do {
+			System.out.print(mensaje);
+			try {
+				entero = MiEntradaSalida.teclado.nextInt();
+				if (entero < 0) {
+					throw new EnteroNegativoException();
+				} else {
+					System.out.println("Error: Debe ser mayor que 0.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Error: Introduce un entero válido.");
+			} catch (NoSuchElementException e) {
+				System.out.println("Error: Introduce un entero válido.");
+			} catch (IllegalStateException e) {
+				System.out.println("Error: Introduce un entero válido.");
+			}
+		} while (noValido);
+
+		return entero;
+	}
+
+	public static int solicitarEnteroEnRango(String mensaje, int min, int max) {
+		while (true) {
+			System.out.print(mensaje + " [" + min + "-" + max + "]: ");
+			try {
+				int num = teclado.nextInt();
+				if (num >= min && num <= max) {
+					return num;
+				} else {
+					System.out.println("Error: Fuera de rango.");
+				}
+			} catch (Exception e) {
+				System.out.println("Error: Introduce un entero válido.");
+			}
+			teclado.nextLine();
+		}
+	}
+
+	public static char solicitarCaracter(String mensaje) {
+		while (true) {
+			System.out.print(mensaje);
+			String input = teclado.nextLine().trim();
+			if (input.length() > 0) {
+				return input.charAt(0);
+			}
+			System.out.println("Error: Introduce un carácter.");
+		}
+	}
+
+	public static char solicitarCaracterSN(String mensaje) {
+		while (true) {
+			System.out.print(mensaje + " (S/N): ");
+			String input = teclado.nextLine().trim().toUpperCase();
+			if (input.length() > 0) {
+				char c = input.charAt(0);
+				if (c == 'S' || c == 'N') {
+					return c;
+				}
+			}
+			System.out.println("Error: Solo 'S' o 'N'.");
+		}
+	}
+
+	public static String solicitarCadena(String mensaje) {
+		while (true) {
+			System.out.print(mensaje);
+			String cadena = teclado.nextLine().trim();
+			if (!cadena.isEmpty()) {
+				return cadena;
+			}
+			System.out.println("Error: Cadena no puede estar vacía.");
+		}
+	}
+}

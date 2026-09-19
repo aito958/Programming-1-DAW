@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class MenuMaquina {
+
+	private static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		
+		boolean continuar = true;
+
+		do {
+			System.out.println("--- MENÚ BARAJA ESPAÑOLA ---");
+			System.out.println("1. Mostrar un palo");
+			System.out.println("2. Mostrar baraja");
+			System.out.println("3. Mostrar carta aleatoria");
+			System.out.println("4. Salir");
+			System.out.println("Elige una opción (1-4)");
+
+			int opcion = teclado.nextInt();
+
+		} while (continuar);
+
+	}
+
+}

@@ -1,0 +1,103 @@
+package juego;
+
+import java.util.HashMap;
+import java.util.Map;
+import bloque.Bloque;
+
+public class Jugador {
+	
+	String nombre;
+	// Coordenadas del jugador
+	int x, y, z;
+	
+	int[] materiasPrimas = new int[Bloque.NUM_MATERIAS];
+	
+	// Mapa para gestionar la durabilidad de las herramientas
+	Map<String, Integer> herramientas;
+
+	public Jugador(String nombre) {
+		this.nombre = nombre;
+		this.herramientas = new HashMap<>();
+		// Inicialmente todas las herramientas tienen 5 usos
+		this.herramientas.put("Hacha", 5);
+		this.herramientas.put("Pala", 5);
+		this.herramientas.put("Pico", 5);
+	}
+
+	public void setPosicion(int x, int y, int z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public void sumaMateria(int tipo) {
+		if (tipo >= 0 && tipo < Bloque.NUM_MATERIAS) {
+			materiasPrimas[tipo]++;
+		} else {
+			throw new IllegalArgumentException("Valor inesperado: " + tipo);
+		}
+	}
+
+	/**
+	 * Comprueba si el jugador tiene 7 unidades de cada materia prima.
+	 */
+	public boolean haGanado() {
+		for (int cantidad : materiasPrimas) {
+			if (cantidad < 7) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Intenta fabricar o reparar las herramientas si se tienen los materiales necesarios.
+	 */
+	public void fabricarHerramientas() {
+		boolean algoCreado = false;
+
+		// Hacha: 1 hierro, 1 árbol.
+		if (materiasPrimas[Bloque.HIERRO] >= 1 && materiasPrimas[Bloque.ARBOL] >= 1) {
+			materiasPrimas[Bloque.HIERRO] -= 1;
+			materiasPrimas[Bloque.ARBOL] -= 1;
+			herramientas.put("Hacha", 5);
+			System.out.println("-> ¡Hacha forjada de nuevo! (5 usos)");
+			algoCreado = true;
+		}
+		// Pala: 2 hierro, 2 árbol.
+		if (materiasPrimas[Bloque.HIERRO] >= 2 && materiasPrimas[Bloque.ARBOL] >= 2) {
+			materiasPrimas[Bloque.HIERRO] -= 2;
+			materiasPrimas[Bloque.ARBOL] -= 2;
+			herramientas.put("Pala", 5);
+			System.out.println("-> ¡Pala forjada de nuevo! (5 usos)");
+			algoCreado = true;
+		}
+		// Pico: 1 hierro, 1 cobre, 2 árbol.
+		if (materiasPrimas[Bloque.HIERRO] >= 1 && materiasPrimas[Bloque.COBRE] >= 1 && materiasPrimas[Bloque.ARBOL] >= 2) {
+			materiasPrimas[Bloque.HIERRO] -= 1;
+			materiasPrimas[Bloque.COBRE] -= 1;
+			materiasPrimas[Bloque.ARBOL] -= 2;
+			herramientas.put("Pico", 5);
+			System.out.println("-> ¡Pico forjado de nuevo! (5 usos)");
+			algoCreado = true;
+		}
+
+		if (!algoCreado) {
+			System.out.println("-> No tienes materiales suficientes para crear ninguna herramienta.");
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "--- ESTADO DE " + this.nombre.toUpperCase() + " ---" +
+				"Posición actual: (X:" + x + ", Y:" + y + ", Z:" + z + ")" +
+				"Herramientas [Usos restantes]: " + herramientas + " " +
+				"Materias primas recolectadas:\n" +
+				" - Plantas: " + materiasPrimas[Bloque.PLANTA] + " " +
+				" - Arboles: " + materiasPrimas[Bloque.ARBOL] + " " +
+				" - Arcilla: " + materiasPrimas[Bloque.ARCILLA] + " " +
+				" - Albero:  " + materiasPrimas[Bloque.ALBERO] + " " +
+				" - Hierro:  " + materiasPrimas[Bloque.HIERRO] + " " +
+				" - Cobre:   " + materiasPrimas[Bloque.COBRE];
+	}
+}

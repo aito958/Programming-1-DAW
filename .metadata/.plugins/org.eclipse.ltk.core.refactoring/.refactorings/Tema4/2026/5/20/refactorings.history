@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;Carta&apos; to &apos;Tema 7/src/Ejemplos&apos;&#x0D;&#x0A;- Original project: &apos;Tema4&apos;&#x0D;&#x0A;- Destination element: &apos;Tema 7/src/Ejemplos&apos;&#x0D;&#x0A;- Original element: &apos;Tema4/src/Carta&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=Tema 7/src&lt;Ejemplos" element1="/src&lt;Carta" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1778511597133" version="1.0"/>
+</session>

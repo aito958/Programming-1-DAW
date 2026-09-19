@@ -1,0 +1,22 @@
+
+public class Carta {
+
+	//Atributos
+	int numero;
+	String palo;
+	
+	//	Constructructor
+	public Carta (int num, String p) {
+		numero = num;
+		palo = p;
+	}
+	public  suCara (int num, String) {
+		
+	}
+	
+	// Metodos
+	void mostrarcarta() {
+		System.out.println(numero+"-"+palo);
+	}
+	
+}

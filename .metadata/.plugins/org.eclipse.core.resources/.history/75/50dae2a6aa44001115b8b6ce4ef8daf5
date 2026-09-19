@@ -1,0 +1,142 @@
+import java.util.List;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		NetFlox netFlox = new NetFlox();
+
+		try {
+			// Inicializar
+			inicializarTemas(netFlox);
+			agregarPeliculas(netFlox);
+			agregarOpiniones(netFlox);
+
+			// Mostrar información
+			mostrarListadoCompleto(netFlox);
+			mostrarPeliculasOrdenadas(netFlox);
+			mostrarActores(netFlox);
+			mostrarBusquedas(netFlox);
+
+			// Operaciones de eliminación
+			realizarEliminaciones(netFlox);
+
+		} catch (NetFloxException e) {
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
+
+	private static void inicializarTemas(NetFlox netFlox) throws NetFloxException {
+		netFlox.annadirTema("COMEDIA");
+		netFlox.annadirTema("ACCION");
+		netFlox.annadirTema("DRAMA");
+		System.out.println(" Temas creados\n");
+	}
+
+	private static void agregarPeliculas(NetFlox netFlox) throws NetFloxException {
+		System.out.println("=== AÑADIENDO PELÍCULAS ===\n");
+
+		crearPelicula(netFlox, "COMEDIA", "BAJO EL MISMO TECHO", 2019, "Actor 1", "Actor 2");
+		crearPelicula(netFlox, "COMEDIA", "RISAS Y MAS RISAS", 2020, "Actor 1", "Actor 3");
+		crearPelicula(netFlox, "COMEDIA", "LA COMEDIA PERFECTA", 2021, "Actor 4");
+
+		crearPelicula(netFlox, "ACCION", "EXPLOSIONES Y FUEGO", 2018, "Actor 5");
+		crearPelicula(netFlox, "ACCION", "MISION IMPOSIBLE", 2020, "Actor 5", "Actor 6");
+		crearPelicula(netFlox, "ACCION", "PERSECUCION MORTAL", 2022, "Actor 1");
+
+		crearPelicula(netFlox, "DRAMA", "VIDAS ROTAS", 2019, "Actor 2");
+		crearPelicula(netFlox, "DRAMA", "LAGRIMAS Y DOLOR", 2021, "Actor 7");
+
+		System.out.println(" Películas añadidas\n");
+	}
+
+	private static void crearPelicula(NetFlox netFlox, String tema, String titulo, int anno, String... actores) 
+			throws NetFloxException {
+		Pelicula pelicula = new Pelicula(titulo, anno);
+		for (String actor : actores) {
+			pelicula.annadirActor(actor);
+		}
+		netFlox.annadirPelicula(tema, pelicula);
+	}
+
+	private static void agregarOpiniones(NetFlox netFlox) throws NetFloxException {
+		System.out.println("=== AÑADIENDO OPINIONES ===\n");
+
+		agregarOpinion(netFlox, "COMEDIA", "BAJO EL MISMO TECHO", 5, 4, 5);
+		agregarOpinion(netFlox, "COMEDIA", "RISAS Y MAS RISAS", 4, 3);
+		agregarOpinion(netFlox, "COMEDIA", "LA COMEDIA PERFECTA", 2);
+
+		agregarOpinion(netFlox, "ACCION", "EXPLOSIONES Y FUEGO", 5, 5, 4);
+		agregarOpinion(netFlox, "ACCION", "MISION IMPOSIBLE", 3);
+		agregarOpinion(netFlox, "ACCION", "PERSECUCION MORTAL", 4, 4);
+
+		agregarOpinion(netFlox, "DRAMA", "VIDAS ROTAS", 5, 5);
+		agregarOpinion(netFlox, "DRAMA", "LAGRIMAS Y DOLOR", 3);
+
+		System.out.println(" Opiniones añadidas\n");
+	}
+
+	private static void agregarOpinion(NetFlox netFlox, String tema, String tituloPelicula, int... valoraciones) 
+			throws NetFloxException {
+		PeliculasDeUnTema peliculasDelTema = netFlox.obtenerTema(tema);
+		for (int valoracion : valoraciones) {
+			Opinion opinion = new Opinion(valoracion, "Opinión de usuario");
+			peliculasDelTema.annadirOpinionAPelicula(tituloPelicula, opinion);
+		}
+	}
+
+	private static void mostrarListadoCompleto(NetFlox netFlox) {
+		System.out.println("=== Listado completo de películas ===");
+		netFlox.listarTodasPeliculas();
+	}
+
+	private static void mostrarPeliculasOrdenadas(NetFlox netFlox) throws NetFloxException {
+		System.out.println("\n==Películas ordenadas por media de opinines ===\n");
+		for (String tema : netFlox.obtenerTemas()) {
+			System.out.println(netFlox.obtenerTema(tema).listadoDePeliculasOrdenadasPorMediaDeOpiniones());
+		}
+	}
+
+	private static void mostrarActores(NetFlox netFlox) throws NetFloxException {
+		System.out.println("=== Películas por actor ===\n");
+
+		PeliculasDeUnTema comedias = netFlox.obtenerTema("Comedia");
+		List<Pelicula> peliculasActor1 = comedias.listaPeliculasDondeIntervieneUnActor("Actor 1");
+
+		System.out.println("Actor 1 en Comedia (" + peliculasActor1.size() + " películas):");
+		peliculasActor1.forEach(p -> System.out.println("  • " + p.getTitulo()));
+
+		PeliculasDeUnTema acciones = netFlox.obtenerTema("Acción");
+		List<Pelicula> peliculasActor1Accion = acciones.listaPeliculasDondeIntervieneUnActor("Actor 1");
+
+		System.out.println("\nActor 1 en Acción (" + peliculasActor1Accion.size() + " películas):");
+		peliculasActor1Accion.forEach(p -> System.out.println("  • " + p.getTitulo()));
+	}
+
+	private static void mostrarBusquedas(NetFlox netFlox) throws NetFloxException {
+		System.out.println("\n=== Búsquedas ===\n");
+
+		String tema = netFlox.temaDePelicula("Bajo el mismo techo");
+		System.out.println("'Bajo el mismo techo' está en: " + tema);
+	}
+
+	private static void realizarEliminaciones(NetFlox netFlox) throws NetFloxException {
+		System.out.println("\n=== Eliminaciones ===\n");
+
+		PeliculasDeUnTema comedias = netFlox.obtenerTema("Comedia");
+		try {
+			comedias.borrarLasPeliculasDeUnAnno(2020);
+			System.out.println("✓ Películas de 2020 eliminadas de COMEDIA\n");
+			System.out.println(comedias);
+		} catch (NetFloxException e) {
+			System.err.println("Error: " + e.getMessage());
+		}
+
+		try {
+			netFlox.borrarPeliculaDeUnTema("Acción", "Explosiones y Fuego");
+			System.out.println(" 'Explosiones y Fuego' eliminada\n");
+		} catch (NetFloxException e) {
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
+
+}

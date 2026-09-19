@@ -1,0 +1,49 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Temporizator2000GUI {
+	
+	static JLabel etiquetaNombreJuagador;
+	static JTextField TextFieldNombreJuagador;
+
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new JPanel();
+		
+		etiquetaNombreJuagador = new JLabel("¿Cuál es tu nombre?");
+		panel.add(etiquetaNombreJuagador);
+		
+		TextFieldNombreJuagador = new JTextField(20);
+		panel.add(TextFieldNombreJuagador);
+		
+		
+		ventana.add(panel);
+		ventana.setSize(500, 500);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		ventana.setVisible(true);
+		
+		
+		
+		
+		
+		
+	}
+
+}

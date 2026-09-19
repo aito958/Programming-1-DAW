@@ -1,0 +1,12 @@
+
+public class Ejemplos {
+
+	public static void main(String[] args) {
+
+		int x = 10;
+		Integer y  = Integer.valueOf("2");
+		
+		System.out.println(y);
+	}
+
+}

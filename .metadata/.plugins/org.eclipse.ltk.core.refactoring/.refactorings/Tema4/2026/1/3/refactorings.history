@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Punto.java&apos; to &apos;Tema4/src/tareaGeometria&apos;&#x0D;&#x0A;- Original project: &apos;Tema4&apos;&#x0D;&#x0A;- Destination element: &apos;Tema4/src/tareaGeometria&apos;&#x0D;&#x0A;- Original element: &apos;Punto.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;tareaGeometria" element1="/src&lt;{Punto.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1768416920136" units="1" version="1.0"/>
+</session>

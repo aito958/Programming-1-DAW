@@ -1,0 +1,34 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Temporizator2000GUI {
+
+	public static void main(String[] args) {
+
+		JFrame ventana = new JFrame("Temporizator 2000");
+		
+		JPanel panel = new JPanel();
+		
+		ventana.add(panel);
+		ventana.setSize(500, 500);
+		
+		System.out.println("Bienvenido a Temporizator 2000, el mejor temporizador del mundo");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		ventana.setVisible(true);
+		
+		
+		
+		
+		
+		
+	}
+
+}

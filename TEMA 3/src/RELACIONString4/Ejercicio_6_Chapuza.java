@@ -1,0 +1,52 @@
+package RELACIONString4;
+
+import java.util.Scanner;
+
+public class Ejercicio_6_Chapuza {
+
+    public static char A = 'A';
+    public static char E = 'E';
+    public static char I = 'I';
+    public static char O = 'O';
+    public static char U = 'U';
+
+    private static Scanner teclado = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        int a = 0;
+        int e = 0;
+        int i = 0;
+        int o = 0;
+        int u = 0;
+
+        String cadena = "abaco"; 
+
+        for (int j = 0; j < cadena.length(); j++) {
+
+            char c = Character.toUpperCase(cadena.charAt(j));
+
+            if (c == A && a != 1) {
+                a++;
+            }
+            if (c == E && e != 1) {
+                e++;
+            }
+            if (c == I && i != 1) {
+                i++;
+            }
+            if (c == O && o != 1) {
+                o++;
+            }
+            if (c == U && u != 1) {
+                u++;
+            }
+        }
+
+        System.out.println("A: " + a);
+        System.out.println("E: " + e);
+        System.out.println("I: " + i);
+        System.out.println("O: " + o);
+        System.out.println("U: " + u);
+    }
+}

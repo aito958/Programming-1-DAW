@@ -1,0 +1,204 @@
+package com.game.ui;
+
+import com.game.database.PartidaDAO;
+import com.game.models.Partida;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.util.Random;
+
+public class VentanaPrincipal extends JFrame {
+    private JTextField txtNombreJugador;
+    private JButton btnIniciar, btnDetener, btnVerRanking;
+    private JLabel lblEstado, lblTiempo, lblResultado;
+    private JPanel panelJuego, panelRanking;
+    
+    private boolean juegoEnMarcha = false;
+    private long tiempoInicio;
+    private int tiempoObjetivo;
+    private PartidaDAO partidaDAO;
+    private String nombreJugadorActual;
+
+    public VentanaPrincipal() {
+        setTitle("⏱️ Juego de Medición de Tiempo");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 500);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        
+        partidaDAO = new PartidaDAO();
+        
+        crearUI();
+    }
+
+    private void crearUI() {
+        // Panel Principal
+        JPanel panelPrincipal = new JPanel();
+        panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
+        panelPrincipal.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        // Panel de Nombre de Jugador
+        JPanel panelNombre = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panelNombre.add(new JLabel("Nombre del Jugador:"));
+        txtNombreJugador = new JTextField(15);
+        panelNombre.add(txtNombreJugador);
+        panelPrincipal.add(panelNombre);
+
+        // Separador
+        panelPrincipal.add(Box.createVerticalStrut(20));
+
+        // Panel de Juego
+        panelJuego = new JPanel();
+        panelJuego.setLayout(new BoxLayout(panelJuego, BoxLayout.Y_AXIS));
+        panelJuego.setBorder(BorderFactory.createTitledBorder("JUEGO"));
+
+        lblEstado = new JLabel("Presiona 'Iniciar' para comenzar");
+        lblEstado.setFont(new Font("Arial", Font.BOLD, 14));
+        lblEstado.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panelJuego.add(lblEstado);
+
+        panelJuego.add(Box.createVerticalStrut(15));
+
+        lblTiempo = new JLabel("Tiempo: 0.00 seg");
+        lblTiempo.setFont(new Font("Arial", Font.PLAIN, 12));
+        lblTiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panelJuego.add(lblTiempo);
+
+        panelJuego.add(Box.createVerticalStrut(20));
+
+        // Panel de Botones
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+        
+        btnIniciar = new JButton("Iniciar");
+        btnIniciar.addActionListener(this::iniciarJuego);
+        panelBotones.add(btnIniciar);
+
+        btnDetener = new JButton("Detener");
+        btnDetener.setEnabled(false);
+        btnDetener.addActionListener(this::detenerJuego);
+        panelBotones.add(btnDetener);
+
+        btnVerRanking = new JButton("Ver Ranking");
+        btnVerRanking.addActionListener(e -> mostrarRanking());
+        panelBotones.add(btnVerRanking);
+
+        panelJuego.add(panelBotones);
+
+        panelJuego.add(Box.createVerticalStrut(15));
+
+        lblResultado = new JLabel("");
+        lblResultado.setFont(new Font("Arial", Font.BOLD, 12));
+        lblResultado.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lblResultado.setForeground(new Color(0, 150, 0));
+        panelJuego.add(lblResultado);
+
+        panelPrincipal.add(panelJuego);
+
+        add(panelPrincipal);
+        setVisible(true);
+    }
+
+    private void iniciarJuego(ActionEvent e) {
+        nombreJugadorActual = txtNombreJugador.getText().trim();
+        
+        if (nombreJugadorActual.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingresa tu nombre", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Generar número aleatorio entre 5 y 30 segundos
+        Random rand = new Random();
+        tiempoObjetivo = 5 + rand.nextInt(26);
+
+        lblEstado.setText("Debes contar: " + tiempoObjetivo + " segundos");
+        lblEstado.setForeground(new Color(0, 0, 255));
+        lblResultado.setText("");
+        
+        juegoEnMarcha = true;
+        tiempoInicio = System.currentTimeMillis();
+        
+        btnIniciar.setEnabled(false);
+        btnDetener.setEnabled(true);
+        txtNombreJugador.setEnabled(false);
+
+        actualizarTiempo();
+    }
+
+    private void actualizarTiempo() {
+        if (juegoEnMarcha) {
+            long tiempoTranscurrido = System.currentTimeMillis() - tiempoInicio;
+            double segundos = tiempoTranscurrido / 1000.0;
+            lblTiempo.setText(String.format("Tiempo: %.2f seg", segundos));
+            
+            SwingUtilities.invokeLater(() -> {
+                if (juegoEnMarcha) {
+                    SwingUtilities.invokeLater(this::actualizarTiempo);
+                }
+            });
+        }
+    }
+
+    private void detenerJuego(ActionEvent e) {
+        if (!juegoEnMarcha) return;
+
+        juegoEnMarcha = false;
+        long tiempoTranscurrido = System.currentTimeMillis() - tiempoInicio;
+        double tiempoReal = tiempoTranscurrido / 1000.0;
+
+        // Crear partida
+        Partida partida = new Partida(
+            partidaDAO.obtenerOCrearJugador(nombreJugadorActual),
+            tiempoObjetivo,
+            tiempoReal
+        );
+
+        // Guardar en BD
+        partidaDAO.guardarPartida(partida);
+
+        // Mostrar resultado
+        String resultado = String.format(
+            "Objetivo: %d seg | Real: %.2f seg | Diferencia: %.2f seg | Exactitud: %.2f%%",
+            tiempoObjetivo, tiempoReal, partida.getDiferencia(), partida.getExactitud()
+        );
+
+        lblResultado.setText(resultado);
+        lblResultado.setForeground(partida.getExactitud() > 90 ? 
+            new Color(0, 150, 0) : new Color(200, 100, 0));
+
+        btnIniciar.setEnabled(true);
+        btnDetener.setEnabled(false);
+        txtNombreJugador.setEnabled(true);
+        lblEstado.setText("Presiona 'Iniciar' para otra ronda");
+        lblEstado.setForeground(new Color(0, 0, 0));
+    }
+
+    private void mostrarRanking() {
+        java.util.List<Partida> top10 = partidaDAO.obtenerTop10();
+        
+        JFrame ventanaRanking = new JFrame("🏆 Ranking Top 10");
+        ventanaRanking.setSize(700, 400);
+        ventanaRanking.setLocationRelativeTo(this);
+
+        String[] columnas = {"Posición", "Jugador", "Objetivo (seg)", "Real (seg)", "Exactitud (%)"};
+        Object[][] datos = new Object[top10.size()][5];
+
+        for (int i = 0; i < top10.size(); i++) {
+            Partida p = top10.get(i);
+            datos[i][0] = i + 1;
+            datos[i][1] = p.getNombreJugador();
+            datos[i][2] = p.getTiempoObjetivo();
+            datos[i][3] = String.format("%.2f", p.getTiempoReal());
+            datos[i][4] = String.format("%.2f", p.getExactitud());
+        }
+
+        JTable tabla = new JTable(datos, columnas);
+        tabla.setEnabled(false);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
+
+        JScrollPane scrollPane = new JScrollPane(tabla);
+        ventanaRanking.add(scrollPane);
+        ventanaRanking.setVisible(true);
+    }
+}

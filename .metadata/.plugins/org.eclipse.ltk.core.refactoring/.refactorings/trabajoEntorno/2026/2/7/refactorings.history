@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;valorEsperado&apos; in &apos;testRectangulo.RectanguloTest.RectanguloTest(...)&apos; to &apos;ancho&apos;&#x0D;&#x0A;- Original project: &apos;trabajoEntorno&apos;&#x0D;&#x0A;- Original element: &apos;testRectangulo.RectanguloTest.RectanguloTest(int, int, int).valorEsperado&apos;&#x0D;&#x0A;- Renamed element: &apos;valorEsperado&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;valorEsperado&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/TrabajoEntorno&lt;testRectangulo{RectanguloTest.java[RectanguloTest~RectanguloTest~I~I~I@valorEsperado!449!465!453!465!I!0!true" name="ancho" references="true" stamp="1770651210949" version="1.0"/>
+</session>

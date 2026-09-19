@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class practica_01 {
+	 private static final Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+ int edad;
+ int peso;
+ double altura;
+ int IMC;
+System.out.println("escribe tu edad ( en años)");
+edad = teclado.nextInt();
+
+System.out.println(" escribe tu altura (en  metros)");
+double altura1 = Double.parseDouble(teclado.nextLine());
+
+
+System.out.println("escribe tu peso ( en kilos");
+peso = teclado.nextInt();
+
+System.out.println("Su IMC es =" + (peso/altura1*altura1));
+
+
+	}
+
+}

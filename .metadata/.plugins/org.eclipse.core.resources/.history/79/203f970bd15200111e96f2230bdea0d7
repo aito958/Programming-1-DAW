@@ -1,0 +1,36 @@
+package ejercicio07;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class Ejercicio07 {
+
+	public static void main(String[] args) {
+
+		File f = new File("src/ejercicio07/stock.dat");
+
+		try (FileInputStream fr = new FileInputStream(f);
+				ObjectInputStream ois = new ObjectInputStream(fr)) {
+			System.out.println((Stock)ois.readObject());
+			
+			Stock s =(Stock)ois.readObject();
+			System.out.println(s);
+			
+		}catch (FileNotFoundException e) {
+			System.err.println("Error al leer el archivo: " + e.getMessage());
+		}catch (IOException e) {
+			System.err.println("Error al procesar el archivo: " + e.getMessage());
+		}catch (ClassNotFoundException e) {
+			System.err.println("Clase no encontrada: " + e.getMessage());
+		}
+		
+
+		
+		
+		
+	}
+
+}
